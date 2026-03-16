@@ -1,0 +1,161 @@
+# StageConnect - React + Laravel Project Rules
+
+## Project Type
+This is a Single Page Application (SPA) with:
+- Frontend: React 19 + React Router + Tailwind CSS 4.0
+- Backend: Laravel 12 API
+- Build Tool: Vite
+
+## File Structure Rules
+
+### Frontend (React)
+- All React components go in `resources/js/`
+- Page components: `resources/js/pages/*.jsx`
+- Reusable components: `resources/js/components/*.jsx`
+- Use functional components with hooks only
+- Use JSX syntax (.jsx extension)
+
+### Backend (Laravel)
+- API controllers: `app/Http/Controllers/Api/*.php`
+- API routes: `routes/api.php`
+- All API routes are prefixed with `/api`
+- Return JSON responses from controllers
+
+### Styling
+- Use Tailwind CSS utility classes
+- Follow dark mode support pattern (light/dark variants)
+- Color scheme: #1b1b18 (dark), #EDEDEC (light text), #f53003 (accent)
+
+## Coding Standards
+
+### React
+```jsx
+// ✅ Good - Functional component with hooks
+export default function MyComponent() {
+    const [state, setState] = useState(null);
+    
+    useEffect(() => {
+        // Side effects
+    }, []);
+    
+    return <div>Content</div>;
+}
+
+// ❌ Bad - Class components
+class MyComponent extends React.Component { }
+```
+
+### Laravel API
+```php
+// ✅ Good - Return JSON
+public function index()
+{
+    return response()->json([
+        'data' => $data
+    ]);
+}
+
+// ❌ Bad - Return views from API
+public function index()
+{
+    return view('page');
+}
+```
+
+## Naming Conventions
+
+### Files
+- React components: PascalCase (e.g., `MyComponent.jsx`)
+- Laravel controllers: PascalCase (e.g., `MyController.php`)
+- Routes: kebab-case (e.g., `/api/my-endpoint`)
+
+### Code
+- React: camelCase for variables, PascalCase for components
+- Laravel: camelCase for methods, snake_case for database
+
+## Import Rules
+
+### React
+```jsx
+// External packages first
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+// Components next
+import MyComponent from '../components/MyComponent';
+
+// Styles last (if any)
+import './styles.css';
+```
+
+### Laravel
+```php
+// Framework imports
+use Illuminate\Http\Request;
+
+// App imports
+use App\Models\MyModel;
+use App\Http\Controllers\Controller;
+```
+
+## API Communication
+
+### Frontend → Backend
+- Use `fetch()` or `axios` for API calls
+- All API endpoints start with `/api/`
+- Handle loading states
+- Handle errors gracefully
+
+```jsx
+useEffect(() => {
+    fetch('/api/endpoint')
+        .then(res => res.json())
+        .then(data => setData(data))
+        .catch(err => console.error(err));
+}, []);
+```
+
+## Routing Rules
+
+### React Router (Frontend)
+- Define routes in `App.jsx`
+- Use `<Link>` for navigation (not `<a>`)
+- All routes are client-side (no page reload)
+
+### Laravel (Backend)
+- API routes in `routes/api.php`
+- SPA fallback in `routes/web.php` (must be last)
+- No blade views except `app.blade.php`
+
+## Build Commands
+
+### Development
+- `composer dev` - Start all servers
+- `npm run dev` - Vite only
+- `php artisan serve` - Laravel only
+
+### Production
+- `npm run build` - Build React app
+- `php artisan optimize` - Optimize Laravel
+
+## Testing
+- React: Add tests in `resources/js/__tests__/`
+- Laravel: Add tests in `tests/Feature/Api/`
+
+## Don't Do This
+❌ Mix blade views with React
+❌ Use class components in React
+❌ Return HTML from API endpoints
+❌ Put business logic in React components
+❌ Skip error handling in API calls
+❌ Forget to handle loading states
+
+## Always Do This
+✅ Separate concerns (UI in React, logic in Laravel)
+✅ Use TypeScript types if added
+✅ Handle loading and error states
+✅ Use semantic HTML
+✅ Follow accessibility best practices
+✅ Keep components small and focused
+✅ Use environment variables for config
+
