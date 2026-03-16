@@ -3,9 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Test style - remove after confirming */
-body { background: red !important; }
-
 @keyframes slide-in {
     from {
         transform: translateX(100%);
