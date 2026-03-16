@@ -1,0 +1,198 @@
+@import 'tailwindcss';
+@import './styles/app.css';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float3d {
+    0% {
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotateX(3deg) rotateY(-3deg);
+    }
+    50% {
+        transform: translateY(-20px) rotateX(0deg) rotateY(3deg);
+    }
+    75% {
+        transform: translateY(-10px) rotateX(-3deg) rotateY(0deg);
+    }
+    100% {
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+}
+
+@keyframes shadow {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateX(-50%) scale(0.8);
+        opacity: 0.3;
+    }
+}
+
+/* Print Styles for Statistics Page */
+@media print {
+    /* Hide navigation and non-essential elements */
+    nav,
+    .print\:hidden {
+        display: none !important;
+    }
+
+    /* Show print-only elements */
+    .print\:block {
+        display: block !important;
+    }
+
+    /* Page setup */
+    @page {
+        size: A4;
+        margin: 1.5cm;
+    }
+
+    /* Reset backgrounds and colors for print */
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    /* Ensure content fits on page */
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Keep borders visible */
+    .border,
+    [class*="border-"] {
+        border-color: #ddd !important;
+    }
+
+    /* Ensure charts and SVG are visible */
+    svg {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Card styles for print */
+    .rounded-2xl,
+    .rounded-xl {
+        border: 1px solid #ddd !important;
+        border-radius: 8px !important;
+        padding: 12px !important;
+        margin-bottom: 12px !important;
+        break-inside: avoid;
+    }
+
+    /* Grid layouts */
+    .grid {
+        display: grid !important;
+    }
+
+    /* Prevent page breaks inside important elements */
+    .break-inside-avoid,
+    .bg-white,
+    [class*="bg-white"] {
+        break-inside: avoid !important;
+    }
+
+    /* Headers */
+    h1, h2, h3, h4, h5, h6 {
+        color: #1a365d !important;
+        font-weight: bold !important;
+        break-after: avoid;
+    }
+
+    /* Links */
+    a {
+        text-decoration: underline !important;
+    }
+
+    /* Hide hover effects */
+    .hover\:scale-105,
+    .hover\:shadow-xl,
+    .transition-all {
+        transform: none !important;
+        transition: none !important;
+    }
+
+    /* Ensure text is readable */
+    .text-\[\#78786c\],
+    .text-\[\#9D9D99\],
+    [class*="text-gray"] {
+        color: #666 !important;
+    }
+
+    /* Chart legends and labels */
+    .text-sm,
+    .text-xs {
+        font-size: 10pt !important;
+    }
+
+    /* Progress bars - show as filled bars */
+    [class*="bg-gradient"] {
+        background: #4a5568 !important;
+    }
+
+    /* Tables and lists */
+    table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+    }
+
+    th, td {
+        border: 1px solid #ddd !important;
+        padding: 8px !important;
+    }
+
+    /* Donut charts - ensure visibility */
+    circle[stroke] {
+        stroke-opacity: 1 !important;
+    }
+
+    /* Page breaks */
+    .page-break-after {
+        page-break-after: always;
+    }
+
+    .page-break-before {
+        page-break-before: always;
+    }
+
+    /* Footer for print */
+    @page {
+        @bottom-right {
+            content: "Page " counter(page) " of " counter(pages);
+        }
+    }
+}
