@@ -19,8 +19,11 @@ RUN php artisan key:generate || true
 
 RUN php artisan config:cache
 
+COPY start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+
 RUN chown -R www-data:www-data storage bootstrap/cache
 
 EXPOSE 10000
 
-CMD php artisan serve --host 0.0.0.0 --port 10000
+CMD ["/usr/local/bin/start.sh"]
