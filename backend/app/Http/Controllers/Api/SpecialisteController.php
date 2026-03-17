@@ -48,6 +48,7 @@ class SpecialisteController extends Controller
             $specialist = Specialiste::create([
                 'nom' => $validated['name'],
                 'description' => $validated['description'] ?? null,
+                'is_active' => $validated['is_active'] ?? true,
             ]);
 
             return response()->json([
@@ -108,6 +109,7 @@ class SpecialisteController extends Controller
             $specialist->update([
                 'nom' => $validated['name'],
                 'description' => $validated['description'] ?? null,
+                'is_active' => $validated['is_active'] ?? true,
             ]);
 
             return response()->json([
