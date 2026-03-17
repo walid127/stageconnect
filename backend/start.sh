@@ -1,6 +1,14 @@
 #!/bin/bash
 set -e
 
+# Ensure app key is present (Render provides env vars at runtime; .env may not exist in image build).
+if [ -z "$APP_KEY" ]; then
+  php artisan key:generate --force
+fi
+
+# Cache config at runtime so it uses current env vars.
+php artisan config:cache
+
 # Run migrations + seeders (idempotent)
 php artisan migrate --force
 php artisan db:seed --force

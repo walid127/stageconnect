@@ -15,9 +15,9 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-RUN php artisan key:generate || true
-
-RUN php artisan config:cache
+# Defer key generation and config caching to container startup so runtime env vars are used.
+# During image build, .env may not exist (Render injects env vars at runtime).
+# This avoids warnings like: file_get_contents(/var/www/html/.env): No such file or directory
 
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
