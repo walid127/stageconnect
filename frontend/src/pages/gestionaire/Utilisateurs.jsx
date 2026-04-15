@@ -603,9 +603,9 @@ export default function UtilisateursGestionaire() {
                         </p>
                     </div>
                 ) : (
-                    <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-x-auto">
+                    <div className="bg-white/95 dark:bg-[#161615]/95 rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-x-auto">
                         {/* List Header */}
-                        <div className="min-w-[920px] bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
+                        <div className="min-w-[920px] sc-table-header-gradient px-6 py-4">
                             <div className="grid min-w-[920px] grid-cols-12 gap-4 text-white font-semibold">
                                 <div className="col-span-1 text-center">#</div>
                                 <div className="col-span-2 text-center">Formateur</div>

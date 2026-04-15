@@ -268,10 +268,10 @@ export default function Grades() {
                         )}
                     </div>
                 ) : (
-                    <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
+                    <div className="bg-white/95 dark:bg-[#161615]/95 rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
                         <div className="overflow-x-auto">
                             {/* Table Header */}
-                            <div className="min-w-[860px] bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
+                            <div className="min-w-[860px] sc-table-header-gradient px-6 py-4">
                                 <div className="grid min-w-[860px] grid-cols-6 gap-4 text-white font-semibold">
                                     <div className="col-span-1 text-center">Code</div>
                                     <div className="col-span-2 text-center">Nom</div>

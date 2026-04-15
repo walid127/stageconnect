@@ -425,9 +425,9 @@ export default function PSP2Gestionaire() {
                         <p className="text-lg text-[#78786c] dark:text-[#9D9D99]">Aucune formation de promotion 10 ans (PSP2) disponible pour le moment.</p>
                     </div>
                 ) : (
-                    <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
+                    <div className="bg-white/95 dark:bg-[#161615]/95 rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
                         <div className="overflow-x-auto">
-                            <div className="min-w-[980px] bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
+                            <div className="min-w-[980px] sc-table-header-gradient px-6 py-4">
                                 <div className="grid min-w-[980px] grid-cols-12 gap-2 text-white font-semibold">
                                     <div className="col-span-1 text-center">#</div>
                                     <div className="col-span-2 text-center">Nom du Formateur</div>

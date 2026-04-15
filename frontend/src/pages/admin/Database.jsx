@@ -245,7 +245,7 @@ export default function Database() {
                 {loading ? (
                     <TableSquelette />
                 ) : (
-                    <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+                    <div className="bg-white/95 dark:bg-gray-800/95 rounded-3xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
                         {backups.length === 0 ? (
                             <div className="p-12 text-center">
                                 <div className="flex flex-col items-center gap-3">
@@ -258,7 +258,7 @@ export default function Database() {
                             <div className="overflow-x-auto">
                             <table className="w-full min-w-[980px]">
                                 <thead>
-                                    <tr className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] text-white">
+                                    <tr className="sc-table-header-gradient text-white">
                                         <th className="px-6 py-4 text-center font-semibold">Nom du fichier</th>
                                         <th className="px-6 py-4 text-center font-semibold">Taille</th>
                                         <th className="px-6 py-4 text-center font-semibold">Date de création</th>
