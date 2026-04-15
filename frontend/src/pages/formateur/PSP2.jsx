@@ -131,10 +131,10 @@ export default function PSP2() {
                         </div>
                     ) : (
                         <div className="p-6">
-                            <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
+                            <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-x-auto">
                                 {/* Table Header */}
                                 <div className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-3">
-                                    <div className="grid grid-cols-12 gap-2 text-white font-semibold">
+                                    <div className="grid min-w-[900px] grid-cols-12 gap-2 text-white font-semibold">
                                         <div className="col-span-2 text-center">Type de Promotion</div>
                                         <div className="col-span-3 text-center">Dates</div>
                                         <div className="col-span-2 text-center">Statut</div>
@@ -145,7 +145,7 @@ export default function PSP2() {
                                 {/* Table Row */}
                                 <div className="divide-y divide-gray-200 dark:divide-gray-700">
                                     <div className="px-6 py-4">
-                                        <div className="grid grid-cols-12 gap-2 items-center">
+                                        <div className="grid min-w-[900px] grid-cols-12 gap-2 items-center">
                                             <div className="col-span-2 text-center">
                                                 <span className="inline-flex px-3 py-1 text-xs rounded-full font-medium bg-purple-100 dark:bg-purple-900/20 text-purple-700 dark:text-purple-400">
                                                     Promotion 10 ans (PSP2)

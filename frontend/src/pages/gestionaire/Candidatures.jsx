@@ -628,10 +628,10 @@ export default function CandidaturesGestionaire() {
                         </p>
                         </div>
                     ) : (
-                    <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
+                    <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-x-auto">
                         {/* List Header */}
                         <div className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
-                            <div className="grid grid-cols-12 gap-4 text-white font-semibold">
+                            <div className="grid min-w-[1000px] grid-cols-12 gap-4 text-white font-semibold">
                                 <div className="col-span-1 text-center">#</div>
                                 <div className="col-span-2 text-center">Formation</div>
                                 <div className="col-span-2 text-center">Formateur</div>
@@ -650,7 +650,7 @@ export default function CandidaturesGestionaire() {
                                     key={app.id}
                                     className="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-200"
                                 >
-                                    <div className="grid grid-cols-12 gap-4 items-center">
+                                    <div className="grid min-w-[1000px] grid-cols-12 gap-4 items-center">
                                         {/* Index */}
                                         <div className="col-span-1 text-center">
                                             <span className="text-sm font-medium text-[#78786c] dark:text-[#9D9D99]">
