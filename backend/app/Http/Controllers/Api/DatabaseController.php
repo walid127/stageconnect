@@ -109,6 +109,71 @@ class DatabaseController extends Controller
 
         return null;
     }
+
+    /**
+     * Sauvegarde SQL sans mysqldump (hébergements sans client MySQL : Render buildpack, etc.).
+     * Utilise la connexion PDO Laravel (même SSL/options que l’app).
+     */
+    private function backupUsingPhp(string $backupPath): void
+    {
+        $pdo = DB::connection()->getPdo();
+        $database = DB::connection()->getDatabaseName();
+        $tablesResult = DB::select(
+            'SELECT TABLE_NAME AS name FROM information_schema.TABLES WHERE TABLE_SCHEMA = ? AND TABLE_TYPE = ? ORDER BY TABLE_NAME',
+            [$database, 'BASE TABLE']
+        );
+        if (empty($tablesResult)) {
+            File::put($backupPath, "-- StageConnect dump (vide)\n-- " . date('c') . "\n");
+            return;
+        }
+
+        $handle = fopen($backupPath, 'w');
+        if ($handle === false) {
+            throw new \RuntimeException('Impossible d\'écrire le fichier de sauvegarde.');
+        }
+
+        fwrite($handle, "-- StageConnect SQL dump (PHP/PDO)\n-- " . date('c') . "\n\n");
+        fwrite($handle, "SET FOREIGN_KEY_CHECKS=0;\n");
+        fwrite($handle, "SET NAMES utf8mb4;\n\n");
+
+        foreach ($tablesResult as $row) {
+            $table = $row->name;
+            $quotedTable = '`' . str_replace('`', '``', $table) . '`';
+
+            $createRows = DB::select('SHOW CREATE TABLE ' . $quotedTable);
+            $createSql = $createRows[0]->{'Create Table'};
+
+            fwrite($handle, "DROP TABLE IF EXISTS {$quotedTable};\n");
+            fwrite($handle, $createSql . ";\n\n");
+
+            $stmt = $pdo->query('SELECT * FROM ' . $quotedTable);
+            $colList = null;
+
+            while ($rowData = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                if ($colList === null) {
+                    $cols = array_keys($rowData);
+                    $colList = implode(',', array_map(static function ($c) {
+                        return '`' . str_replace('`', '``', $c) . '`';
+                    }, $cols));
+                }
+                $values = [];
+                foreach ($rowData as $val) {
+                    if ($val === null) {
+                        $values[] = 'NULL';
+                    } else {
+                        $q = $pdo->quote($val);
+                        $values[] = $q !== false ? $q : "'" . addslashes((string) $val) . "'";
+                    }
+                }
+                fwrite($handle, "INSERT INTO {$quotedTable} ({$colList}) VALUES (" . implode(',', $values) . ");\n");
+            }
+            fwrite($handle, "\n");
+        }
+
+        fwrite($handle, "SET FOREIGN_KEY_CHECKS=1;\n");
+        fclose($handle);
+    }
+
     /**
      * Sauvegarder la base de données (Admin uniquement)
      */
@@ -136,68 +201,70 @@ class DatabaseController extends Controller
                 File::makeDirectory($backupsDir, 0755, true);
             }
 
-            // Vérifier si mysqldump est disponible
+            $backupMethod = 'php';
             $mysqldumpPath = $this->findMysqldumpPath();
-            if (!$mysqldumpPath) {
-                \Log::error('mysqldump introuvable dans le PATH');
-                return response()->json([
-                    'message' => 'mysqldump n\'est pas disponible. Vérifiez que MySQL est installé et dans le PATH.',
-                    'error' => 'Commande mysqldump introuvable',
-                ], 500);
-            }
 
-            // Créer un fichier de configuration temporaire pour éviter les problèmes de mot de passe
-            $configFile = storage_path('app/temp_mysql_config.cnf');
-            $configContent = "[client]\n";
-            $configContent .= "host=" . $host . "\n";
-            $configContent .= "port=" . $port . "\n";
-            $configContent .= "user=" . $username . "\n";
-            $configContent .= "password=" . $password . "\n";
-            File::put($configFile, $configContent);
-            
-            // Définir les permissions du fichier de configuration (lecture seule pour le propriétaire)
-            if (PHP_OS_FAMILY !== 'Windows') {
-                chmod($configFile, 0600);
-            }
+            if ($mysqldumpPath) {
+                $configFile = storage_path('app/temp_mysql_config.cnf');
+                $configContent = "[client]\n";
+                $configContent .= "host=" . $host . "\n";
+                $configContent .= "port=" . $port . "\n";
+                $configContent .= "user=" . $username . "\n";
+                $configContent .= "password=" . $password . "\n";
+                $sslCa = env('MYSQL_ATTR_SSL_CA');
+                if (!empty($sslCa) && is_string($sslCa) && file_exists($sslCa)) {
+                    $configContent .= "ssl-ca=" . $sslCa . "\n";
+                }
+                $sslMode = env('DB_SSL_MODE');
+                if (!empty($sslMode)) {
+                    $configContent .= "ssl-mode=" . $sslMode . "\n";
+                }
+                File::put($configFile, $configContent);
 
-            // Commande mysqldump avec fichier de configuration
-            $command = sprintf(
-                '%s --defaults-file=%s %s > %s 2>&1',
-                escapeshellarg($mysqldumpPath),
-                escapeshellarg($configFile),
-                escapeshellarg($database),
-                escapeshellarg($backupPath)
-            );
+                if (PHP_OS_FAMILY !== 'Windows') {
+                    chmod($configFile, 0600);
+                }
 
-            $output = [];
-            $returnVar = 0;
-            exec($command, $output, $returnVar);
+                $command = sprintf(
+                    '%s --single-transaction --quick --defaults-file=%s %s > %s 2>&1',
+                    escapeshellarg($mysqldumpPath),
+                    escapeshellarg($configFile),
+                    escapeshellarg($database),
+                    escapeshellarg($backupPath)
+                );
 
-            // Supprimer le fichier de configuration temporaire
-            if (File::exists($configFile)) {
-                File::delete($configFile);
-            }
+                $output = [];
+                $returnVar = 0;
+                exec($command, $output, $returnVar);
 
-            if ($returnVar !== 0) {
-                \Log::error('Échec de mysqldump', [
-                    'command' => $command,
-                    'output' => $output,
-                    'return_var' => $returnVar
-                ]);
-                
-                return response()->json([
-                    'message' => 'Erreur lors de la sauvegarde de la base de données.',
-                    'error' => implode("\n", $output),
-                ], 500);
+                if (File::exists($configFile)) {
+                    File::delete($configFile);
+                }
+
+                if ($returnVar === 0 && File::exists($backupPath) && File::size($backupPath) > 0) {
+                    $backupMethod = 'mysqldump';
+                } else {
+                    \Log::warning('mysqldump a échoué ou fichier vide, repli sur sauvegarde PHP', [
+                        'return_var' => $returnVar,
+                        'output_lines' => $output,
+                    ]);
+                    if (File::exists($backupPath)) {
+                        File::delete($backupPath);
+                    }
+                    $this->backupUsingPhp($backupPath);
+                }
+            } else {
+                \Log::info('mysqldump introuvable, sauvegarde via PHP (PDO)');
+                $this->backupUsingPhp($backupPath);
             }
 
             if (!File::exists($backupPath) || File::size($backupPath) === 0) {
                 \Log::error('Fichier de sauvegarde non créé ou vide', [
                     'backup_path' => $backupPath,
                     'exists' => File::exists($backupPath),
-                    'size' => File::exists($backupPath) ? File::size($backupPath) : 0
+                    'size' => File::exists($backupPath) ? File::size($backupPath) : 0,
                 ]);
-                
+
                 return response()->json([
                     'message' => 'Le fichier de sauvegarde n\'a pas été créé ou est vide.',
                     'error' => 'Échec de la création du fichier de sauvegarde',
@@ -210,13 +277,14 @@ class DatabaseController extends Controller
                 'path' => $backupPath,
                 'size' => File::size($backupPath),
                 'created_at' => now()->toDateTimeString(),
+                'method' => $backupMethod,
             ]);
         } catch (\Exception $e) {
             \Log::error('Exception lors de la sauvegarde de la base de données', [
                 'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
+                'trace' => $e->getTraceAsString(),
             ]);
-            
+
             return response()->json([
                 'message' => 'Erreur lors de la sauvegarde.',
                 'error' => $e->getMessage(),
