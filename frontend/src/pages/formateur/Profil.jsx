@@ -168,7 +168,7 @@ export default function FormateurProfile() {
 
             {/* Message Popup */}
             {showMessage && (
-                <div className="fixed top-4 right-4 z-[9999] animate-slide-in">
+                <div className="fixed top-14 sm:top-4 right-3 sm:right-4 z-[9999] animate-slide-in max-w-[calc(100vw-1.5rem)]">
                     <div className={`px-6 py-4 rounded-xl shadow-lg border-l-4 flex items-center space-x-3 ${
                         messageType === 'success' 
                             ? 'bg-green-50 border-green-500 text-green-800 dark:bg-green-900/20 dark:text-green-300' 
@@ -218,10 +218,10 @@ export default function FormateurProfile() {
                             Mon Profil
                         </h1>
                         
-                        <div className="mb-4">
+                        <div className="mb-2 sm:mb-4">
                             <Link 
                                 to="/formateur/dashboard" 
-                                className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-xl border border-white/30 shadow-xl hover:shadow-white/20 transition-all duration-300 text-sm font-medium"
+                                className="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-6 sm:py-2.5 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-lg sm:rounded-xl border border-white/30 shadow-lg sm:shadow-xl hover:shadow-white/20 transition-all duration-300 text-xs sm:text-sm font-medium"
                             >
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -242,21 +242,21 @@ export default function FormateurProfile() {
 
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-6 sm:pb-16 pt-2 sm:pt-4 relative z-20">
                 {/* Modern Profile Header Card */}
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden mb-6">
-                    <div className="relative bg-gradient-to-r from-[#1a365d] via-[#2d3748] to-[#1e293b] p-8 md:p-12">
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden mb-4 sm:mb-6">
+                    <div className="relative bg-gradient-to-r from-[#1a365d] via-[#2d3748] to-[#1e293b] p-4 sm:p-6 md:p-12">
                         {/* Background Pattern */}
                         <div className="absolute inset-0 opacity-10">
                             <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px'}}></div>
                         </div>
                         
-                        <div className="relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
+                        <div className="relative flex flex-col md:flex-row items-center md:items-start gap-4 sm:gap-6 md:gap-8">
                             {/* Avatar */}
                             <div className="relative group">
-                                <div className="w-32 h-32 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-3xl flex items-center justify-center text-white text-5xl font-bold shadow-2xl transform group-hover:scale-105 transition-transform duration-300">
+                                <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-2xl sm:rounded-3xl flex items-center justify-center text-white text-3xl sm:text-5xl font-bold shadow-xl sm:shadow-2xl transform group-hover:scale-105 transition-transform duration-300">
                                     {user.nom?.charAt(0)?.toUpperCase()}
                                 </div>
-                                <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-green-500 rounded-full border-4 border-white dark:border-gray-800 flex items-center justify-center shadow-lg">
-                                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <div className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 w-8 h-8 sm:w-10 sm:h-10 bg-green-500 rounded-full border-2 sm:border-4 border-white dark:border-gray-800 flex items-center justify-center shadow-lg">
+                                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                     </svg>
                                 </div>
@@ -264,21 +264,21 @@ export default function FormateurProfile() {
 
                             {/* Info */}
                             <div className="flex-1 text-center md:text-left">
-                                <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">
+                                <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-2 sm:mb-3 tracking-tight">
                                     {user.nom}
                                 </h1>
-                                <p className="text-white/70 text-lg mb-4 max-w-2xl">
+                                <p className="text-white/70 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 max-w-2xl">
                                     Gérez et mettez à jour vos informations professionnelles
                                 </p>
-                                <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
-                                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-medium text-sm border border-white/30">
+                                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3">
+                                    <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-medium text-xs sm:text-sm border border-white/30">
                                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
                                         </svg>
                                         {user.formateur?.specialite?.nom || 'Formateur'}
                                     </span>
                                     {user.formateur?.ville && (
-                                        <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white/80 font-medium text-sm border border-white/20">
+                                        <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-md rounded-full text-white/80 font-medium text-xs sm:text-sm border border-white/20">
                                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                             </svg>
@@ -291,9 +291,9 @@ export default function FormateurProfile() {
                             {/* Edit Button */}
                             <button
                                 onClick={() => setShowEditModal(true)}
-                                className="group relative px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 rounded-2xl transition-all duration-300 font-semibold shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 flex items-center gap-2"
+                                className="group relative px-4 py-2 sm:px-6 sm:py-3 bg-white hover:bg-gray-50 text-gray-900 rounded-xl sm:rounded-2xl transition-all duration-300 text-sm sm:text-base font-semibold shadow-lg sm:shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 flex items-center gap-1.5 sm:gap-2"
                             >
-                                <svg className="w-5 h-5 transform group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                 </svg>
                                 Modifier
@@ -302,12 +302,12 @@ export default function FormateurProfile() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
                     {/* Personal Info Card */}
                     <div className="lg:col-span-1">
-                        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 p-6">
-                            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl border border-gray-200/50 dark:border-gray-700/50 p-4 sm:p-6">
+                            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 flex items-center gap-2">
+                                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg sm:rounded-xl flex items-center justify-center">
                                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                                     </svg>
@@ -324,9 +324,9 @@ export default function FormateurProfile() {
 
                     {/* Professional Info Card */}
                     <div className="lg:col-span-2">
-                        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 p-6">
-                            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
+                        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl border border-gray-200/50 dark:border-gray-700/50 p-4 sm:p-6">
+                            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 flex items-center gap-2">
+                                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg sm:rounded-xl flex items-center justify-center">
                                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
                                     </svg>
@@ -338,12 +338,12 @@ export default function FormateurProfile() {
                                 <InfoItem icon="🏛️" label="Institution" value={user.formateur?.institution || 'Non renseignée'} />
                                 <InfoItem icon="🎓" label="Diplôme" value={user.formateur?.diplome || 'Non renseigné'} />
                             </div>
-                            <div className="mt-6 pt-6 border-t-2 border-gray-200 dark:border-gray-700">
+                            <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t-2 border-gray-200 dark:border-gray-700">
                                 <button
                                     onClick={() => setShowPasswordModal(true)}
-                                    className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                                    className="w-full px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg sm:rounded-xl transition-all duration-300 font-semibold shadow-md sm:shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
                                 >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                                     </svg>
                                     Changer le mot de passe
@@ -359,34 +359,34 @@ export default function FormateurProfile() {
                 <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-fade-in">
                     <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 w-full max-w-2xl overflow-hidden transform animate-scale-in">
                         {/* Modal Header */}
-                        <div className="relative bg-gradient-to-r from-[#1a365d] via-[#2d3748] to-[#1e293b] p-8">
+                        <div className="relative bg-gradient-to-r from-[#1a365d] via-[#2d3748] to-[#1e293b] p-4 sm:p-6 md:p-8">
                             <div className="absolute inset-0 opacity-10">
                                 <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px'}}></div>
                             </div>
-                            <div className="relative flex justify-between items-start">
+                            <div className="relative flex justify-between items-start gap-3">
                                 <div>
-                                    <h2 className="text-3xl font-extrabold text-white mb-2 flex items-center gap-3">
-                                        <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center">
-                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-2 flex items-center gap-2 sm:gap-3">
+                                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 backdrop-blur-md rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
+                                            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                             </svg>
                                         </div>
                                         Modifier le Profil
                                     </h2>
-                                    <p className="text-white/70 text-sm ml-13">Mettez à jour vos informations personnelles</p>
+                                    <p className="text-white/70 text-xs sm:text-sm">Mettez à jour vos informations personnelles</p>
                                 </div>
                                 <button
                                     onClick={() => setShowEditModal(false)}
-                                    className="w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-2xl flex items-center justify-center transition-all duration-300 hover:rotate-90 text-white text-xl"
+                                    className="w-9 h-9 sm:w-10 sm:h-10 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-xl sm:rounded-2xl flex items-center justify-center transition-all duration-300 hover:rotate-90 text-white text-lg sm:text-xl shrink-0"
                                 >
                                     ✕
                                 </button>
                             </div>
                         </div>
 
-                        <div className="p-8">
-                            <div className="space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="p-4 sm:p-6 md:p-8">
+                            <div className="space-y-4 sm:space-y-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
                                             <span className="text-lg">👤</span>
@@ -397,7 +397,7 @@ export default function FormateurProfile() {
                                             name="name"
                                             value={formData.name}
                                             onChange={handleInputChange}
-                                            className="w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3.5 border-2 border-gray-200 dark:border-gray-700 rounded-xl sm:rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none text-sm sm:text-base"
                                             placeholder="Votre nom complet"
                                             maxLength="20"
                                         />
@@ -413,13 +413,13 @@ export default function FormateurProfile() {
                                             name="email"
                                             value={formData.email}
                                             onChange={handleInputChange}
-                                            className="w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3.5 border-2 border-gray-200 dark:border-gray-700 rounded-xl sm:rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none text-sm sm:text-base"
                                             placeholder="votre@email.com"
                                         />
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
                                             <span className="text-lg">📱</span>
@@ -432,7 +432,7 @@ export default function FormateurProfile() {
                                             onChange={handleInputChange}
                                             placeholder="0672587841"
                                             maxLength="10"
-                                            className="w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3.5 border-2 border-gray-200 dark:border-gray-700 rounded-xl sm:rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none text-sm sm:text-base"
                                         />
                                     </div>
 
@@ -447,24 +447,24 @@ export default function FormateurProfile() {
                                             value={formData.city}
                                             onChange={handleInputChange}
                                             placeholder="Votre ville"
-                                            className="w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3.5 border-2 border-gray-200 dark:border-gray-700 rounded-xl sm:rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none text-sm sm:text-base"
                                         />
                                     </div>
                                 </div>
 
                             </div>
 
-                            <div className="flex gap-4 mt-8 pt-6 border-t-2 border-gray-200 dark:border-gray-700">
+                            <div className="flex gap-3 sm:gap-4 mt-4 sm:mt-8 pt-4 sm:pt-6 border-t-2 border-gray-200 dark:border-gray-700">
                                 <button
                                     onClick={handleCancel}
-                                    className="flex-1 px-6 py-3.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-2xl transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                    className="flex-1 px-4 py-2.5 sm:px-6 sm:py-3.5 text-sm sm:text-base bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl sm:rounded-2xl transition-all duration-300 font-bold shadow-md sm:shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                                 >
                                     Annuler
                                 </button>
                                 <button
                                     onClick={handleSave}
                                     disabled={loading}
-                                    className="flex-1 px-6 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                    className="flex-1 px-4 py-2.5 sm:px-6 sm:py-3.5 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl sm:rounded-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold shadow-md sm:shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                                 >
                                     {loading ? (
                                         <span className="flex items-center justify-center gap-2">
@@ -494,33 +494,33 @@ export default function FormateurProfile() {
                 <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-fade-in">
                     <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 w-full max-w-2xl overflow-hidden transform animate-scale-in">
                         {/* Modal Header */}
-                        <div className="relative bg-gradient-to-r from-[#1a365d] via-[#2d3748] to-[#1e293b] p-8">
+                        <div className="relative bg-gradient-to-r from-[#1a365d] via-[#2d3748] to-[#1e293b] p-4 sm:p-6 md:p-8">
                             <div className="absolute inset-0 opacity-10">
                                 <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px'}}></div>
                             </div>
-                            <div className="relative flex justify-between items-start">
+                            <div className="relative flex justify-between items-start gap-3">
                                 <div>
-                                    <h2 className="text-3xl font-extrabold text-white mb-2 flex items-center gap-3">
-                                        <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center">
-                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-2 flex items-center gap-2 sm:gap-3">
+                                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 backdrop-blur-md rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
+                                            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                                             </svg>
                                         </div>
                                         Changer le mot de passe
                                     </h2>
-                                    <p className="text-white/70 text-sm ml-13">Mettez à jour votre mot de passe</p>
+                                    <p className="text-white/70 text-xs sm:text-sm">Mettez à jour votre mot de passe</p>
                                 </div>
                                 <button
                                     onClick={handlePasswordCancel}
-                                    className="w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-2xl flex items-center justify-center transition-all duration-300 hover:rotate-90 text-white text-xl"
+                                    className="w-9 h-9 sm:w-10 sm:h-10 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-xl sm:rounded-2xl flex items-center justify-center transition-all duration-300 hover:rotate-90 text-white text-lg sm:text-xl shrink-0"
                                 >
                                     ✕
                                 </button>
                             </div>
                         </div>
 
-                        <div className="p-8">
-                            <div className="space-y-6">
+                        <div className="p-4 sm:p-6 md:p-8">
+                            <div className="space-y-4 sm:space-y-6">
                                 <div>
                                     <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
                                         <span className="text-lg">🔒</span>
@@ -532,7 +532,7 @@ export default function FormateurProfile() {
                                             name="current_password"
                                             value={passwordData.current_password}
                                             onChange={handlePasswordChange}
-                                            className="w-full px-4 py-3.5 pr-12 border-2 border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3.5 pr-12 border-2 border-gray-200 dark:border-gray-700 rounded-xl sm:rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none text-sm sm:text-base"
                                             placeholder="Votre mot de passe actuel"
                                         />
                                         <button
@@ -565,7 +565,7 @@ export default function FormateurProfile() {
                                             name="password"
                                             value={passwordData.password}
                                             onChange={handlePasswordChange}
-                                            className="w-full px-4 py-3.5 pr-12 border-2 border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3.5 pr-12 border-2 border-gray-200 dark:border-gray-700 rounded-xl sm:rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none text-sm sm:text-base"
                                             placeholder="Nouveau mot de passe (min. 8 caractères)"
                                         />
                                         <button
@@ -598,7 +598,7 @@ export default function FormateurProfile() {
                                             name="password_confirmation"
                                             value={passwordData.password_confirmation}
                                             onChange={handlePasswordChange}
-                                            className="w-full px-4 py-3.5 pr-12 border-2 border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3.5 pr-12 border-2 border-gray-200 dark:border-gray-700 rounded-xl sm:rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none text-sm sm:text-base"
                                             placeholder="Confirmer le nouveau mot de passe"
                                         />
                                         <button
@@ -621,17 +621,17 @@ export default function FormateurProfile() {
                                 </div>
                             </div>
 
-                            <div className="flex gap-4 mt-8 pt-6 border-t-2 border-gray-200 dark:border-gray-700">
+                            <div className="flex gap-3 sm:gap-4 mt-4 sm:mt-8 pt-4 sm:pt-6 border-t-2 border-gray-200 dark:border-gray-700">
                                 <button
                                     onClick={handlePasswordCancel}
-                                    className="flex-1 px-6 py-3.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-2xl transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                    className="flex-1 px-4 py-2.5 sm:px-6 sm:py-3.5 text-sm sm:text-base bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl sm:rounded-2xl transition-all duration-300 font-bold shadow-md sm:shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                                 >
                                     Annuler
                                 </button>
                                 <button
                                     onClick={handlePasswordSave}
                                     disabled={passwordLoading}
-                                    className="flex-1 px-6 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                    className="flex-1 px-4 py-2.5 sm:px-6 sm:py-3.5 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl sm:rounded-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold shadow-md sm:shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                                 >
                                     {passwordLoading ? (
                                         <span className="flex items-center justify-center gap-2">
@@ -662,9 +662,9 @@ export default function FormateurProfile() {
 // Helper component for info items
 function InfoItem({ icon, label, value }) {
     return (
-        <div className="group p-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-2xl border border-gray-200 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5">
-            <div className="flex items-start gap-3">
-                <span className="text-2xl flex-shrink-0 transform group-hover:scale-110 transition-transform duration-300">{icon}</span>
+        <div className="group p-3 sm:p-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-md sm:hover:shadow-lg transform hover:-translate-y-0.5">
+            <div className="flex items-start gap-2 sm:gap-3">
+                <span className="text-xl sm:text-2xl flex-shrink-0 transform group-hover:scale-110 transition-transform duration-300">{icon}</span>
                 <div className="flex-1 min-w-0">
                     <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">{label}</p>
                     <p className="text-sm font-bold text-gray-900 dark:text-white truncate">{value}</p>
