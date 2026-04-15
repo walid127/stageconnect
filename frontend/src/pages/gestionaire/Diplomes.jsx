@@ -254,11 +254,7 @@ export default function GestionaireDiplomas() {
             let response;
             if (editingDiploma) {
                 // Update existing diploma
-                response = await axios.post(`/api/admin/diplomes/${editingDiploma.id}`, formDataToSend, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
-                });
+                response = await axios.post(`/api/admin/diplomes/${editingDiploma.id}`, formDataToSend);
                 
                 // Mettre à jour immédiatement l'état local AVANT la fermeture du modal
                 setDiplomas(prev => prev.map(d => 
@@ -268,11 +264,7 @@ export default function GestionaireDiplomas() {
                 ));
             } else {
                 // Create new diploma
-                response = await axios.post('/api/admin/diplomes', formDataToSend, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
-                });
+                response = await axios.post('/api/admin/diplomes', formDataToSend);
             }
 
             // Succès : recharger complètement la page pour tout rafraîchir

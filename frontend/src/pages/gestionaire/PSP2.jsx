@@ -194,11 +194,7 @@ export default function PSP2Gestionaire() {
                 }
             }
 
-            await axios.post('/api/admin/formations-promotion', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+            await axios.post('/api/admin/formations-promotion', formData);
             // Après création, recharger entièrement la page
             window.location.reload();
         } catch (error) {

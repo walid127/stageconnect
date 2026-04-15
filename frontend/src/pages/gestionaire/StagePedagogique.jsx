@@ -181,11 +181,7 @@ export default function StagePedagogiqueGestionaire() {
                 }
             }
 
-            await axios.post('/api/admin/formations-pedagogiques', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+            await axios.post('/api/admin/formations-pedagogiques', formData);
             // Après création, recharger entièrement la page
             window.location.reload();
         } catch (error) {

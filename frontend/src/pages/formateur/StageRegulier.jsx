@@ -160,11 +160,7 @@ export default function StageRegulier() {
             formData.append('formation_id', selectedTraining.id);
             formData.append('dossier', dossierFile);
 
-            await axios.post('/api/candidatures', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+            await axios.post('/api/candidatures', formData);
             
             clearCache('formateur_trainings');
             clearCache('formateur_applications');

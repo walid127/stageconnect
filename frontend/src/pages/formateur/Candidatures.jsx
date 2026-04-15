@@ -171,11 +171,7 @@ export default function CandidaturesFormateur() {
             const formData = new FormData();
             formData.append('dossier', resubmitDossierFile);
 
-            await axios.post(`/api/candidatures/${resubmittingAppId}/dossier/resubmit`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+            await axios.post(`/api/candidatures/${resubmittingAppId}/dossier/resubmit`, formData);
 
             showMessagePopup('Dossier resoumis avec succès!', 'success');
             setShowResubmitModal(false);

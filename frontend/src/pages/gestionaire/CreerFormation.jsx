@@ -85,11 +85,7 @@ export default function CreerFormation() {
                 }
             }
 
-            const response = await axios.post('/api/formations', payload, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+            const response = await axios.post('/api/formations', payload);
             
             // Show success message
             setMessage('Formation créée avec succès!');
