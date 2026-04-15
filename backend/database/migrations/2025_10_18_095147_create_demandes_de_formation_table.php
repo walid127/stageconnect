@@ -27,8 +27,9 @@ return new class extends Migration
             // Index pour améliorer les performances
             $table->index('statut');
             $table->index('date_demande');
-            
+
             $table->timestamps();
+            $table->timestamp('masquee_gestionnaire_at')->nullable();
         });
     }
 

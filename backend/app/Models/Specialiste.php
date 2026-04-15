@@ -14,7 +14,6 @@ class Specialiste extends Model
     protected $fillable = [
         'nom',
         'description',
-        'is_active',
     ];
 
     // Relations

@@ -17,9 +17,6 @@ class SpecialisteController extends Controller
     {
         $query = Specialiste::query();
 
-
-        // Active status filter removed - all specialists are shown
-
         // Search by name
         if ($request->has('search') && $request->search) {
             $query->where('nom', 'like', '%' . $request->search . '%');
@@ -42,13 +39,11 @@ class SpecialisteController extends Controller
             $validated = $request->validate([
                 'name' => 'required|string|max:255|unique:specialites,nom',
                 'description' => 'nullable|string',
-                'is_active' => 'nullable|boolean'
             ]);
 
             $specialist = Specialiste::create([
                 'nom' => $validated['name'],
                 'description' => $validated['description'] ?? null,
-                'is_active' => $validated['is_active'] ?? true,
             ]);
 
             return response()->json([
@@ -103,13 +98,11 @@ class SpecialisteController extends Controller
             $validated = $request->validate([
                 'name' => 'required|string|max:255|unique:specialites,nom,' . $id,
                 'description' => 'nullable|string',
-                'is_active' => 'nullable|boolean'
             ]);
 
             $specialist->update([
                 'nom' => $validated['name'],
                 'description' => $validated['description'] ?? null,
-                'is_active' => $validated['is_active'] ?? true,
             ]);
 
             return response()->json([

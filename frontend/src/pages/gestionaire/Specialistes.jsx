@@ -16,7 +16,6 @@ export default function Specialistes() {
     const [formData, setFormData] = useState({
         name: '',
         description: '',
-        is_active: true
     });
     const [showMessage, setShowMessage] = useState(false);
     const [message, setMessage] = useState('');
@@ -45,14 +44,7 @@ export default function Specialistes() {
         if (appliedFilters.description && !specialist.description?.toLowerCase().includes(appliedFilters.description.toLowerCase())) {
             return false;
         }
-        
-        if (appliedFilters.status && appliedFilters.status !== '') {
-            const isActive = specialist.is_active === 1 || specialist.is_active === true || 
-                           (specialist.est_actif === 1 || specialist.est_actif === true);
-            if (appliedFilters.status === 'active' && !isActive) return false;
-            if (appliedFilters.status === 'inactive' && isActive) return false;
-        }
-        
+
         return true;
     });
 
@@ -106,13 +98,13 @@ export default function Specialistes() {
             clearCache('gestionaire_dashboard_stats');
             setShowModal(false);
             setEditingSpecialist(null);
-            setFormData({ name: '', description: '', is_active: true });
+            setFormData({ name: '', description: '' });
             
             // Mettre à jour immédiatement l'état local
             if (editingSpecialist) {
                 setSpecialists(prev => prev.map(s => 
                     s.id === editingSpecialist.id 
-                        ? { ...s, nom: formData.name, description: formData.description, is_active: formData.is_active }
+                        ? { ...s, nom: formData.name, description: formData.description }
                         : s
                 ));
             } else {
@@ -147,7 +139,6 @@ export default function Specialistes() {
         setFormData({
             name: specialist.nom,
             description: specialist.description || '',
-            is_active: specialist.is_active !== undefined ? specialist.is_active : (specialist.est_actif !== undefined ? specialist.est_actif : true)
         });
         setShowModal(true);
     };
@@ -193,7 +184,7 @@ export default function Specialistes() {
     };
 
     const resetForm = () => {
-        setFormData({ name: '', description: '', is_active: true });
+        setFormData({ name: '', description: '' });
         setEditingSpecialist(null);
         setShowModal(false);
     };
@@ -261,16 +252,6 @@ export default function Specialistes() {
                             type: 'text',
                             placeholder: 'Rechercher dans la description...',
                             icon: '📝'
-                        },
-                        {
-                            name: 'status',
-                            label: 'Statut',
-                            type: 'select',
-                            icon: '📊',
-                            options: [
-                                { value: 'active', label: '✅ Active' },
-                                { value: 'inactive', label: '⛔ Inactive' }
-                            ]
                         }
                     ]}
                     onFilter={(filters) => setAppliedFilters(filters)}
@@ -337,11 +318,10 @@ export default function Specialistes() {
                     <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-x-auto">
                         {/* List Header */}
                         <div className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
-                            <div className="grid min-w-[900px] grid-cols-12 gap-4 text-white font-semibold">
+                            <div className="grid min-w-[860px] grid-cols-12 gap-4 text-white font-semibold">
                                 <div className="col-span-1 text-center">#</div>
-                                <div className="col-span-4 text-center">Nom de la Spécialité</div>
-                                <div className="col-span-3 text-center">Description</div>
-                                <div className="col-span-2 text-center">Statut</div>
+                                <div className="col-span-5 text-center">Nom de la Spécialité</div>
+                                <div className="col-span-4 text-center">Description</div>
                                 <div className="col-span-2 text-center">Actions</div>
                             </div>
                         </div>
@@ -353,7 +333,7 @@ export default function Specialistes() {
                                     key={specialist.id}
                                     className="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-200"
                                 >
-                                    <div className="grid min-w-[900px] grid-cols-12 gap-4 items-center">
+                                    <div className="grid min-w-[860px] grid-cols-12 gap-4 items-center">
                                         {/* Index */}
                                         <div className="col-span-1 text-center">
                                             <span className="text-sm font-medium text-[#78786c] dark:text-[#9D9D99]">
@@ -362,35 +342,17 @@ export default function Specialistes() {
                                         </div>
                                         
                                         {/* Name */}
-                                        <div className="col-span-4 text-center">
+                                        <div className="col-span-5 text-center">
                                             <h3 className="font-semibold text-[#1b1b18] dark:text-[#EDEDEC] text-sm">
                                                 {specialist.nom}
                                             </h3>
                                         </div>
                                         
                                         {/* Description */}
-                                        <div className="col-span-3 text-center">
+                                        <div className="col-span-4 text-center">
                                             <p className="text-sm text-[#78786c] dark:text-[#9D9D99] truncate">
                                                 {specialist.description || 'Aucune description'}
                                             </p>
-                                        </div>
-                                        
-                                        {/* Status */}
-                                        <div className="col-span-2 text-center">
-                                            {(() => {
-                                                const isActive = specialist.is_active !== undefined 
-                                                    ? (specialist.is_active === 1 || specialist.is_active === true)
-                                                    : (specialist.est_actif === 1 || specialist.est_actif === true);
-                                                return (
-                                                    <span className={`inline-flex px-3 py-1 text-xs rounded-full font-medium ${
-                                                        isActive
-                                                            ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
-                                                            : 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400'
-                                                    }`}>
-                                                        {isActive ? 'Actif' : 'Inactif'}
-                                                    </span>
-                                                );
-                                            })()}
                                         </div>
                                         
                                         {/* Actions */}
@@ -468,19 +430,6 @@ export default function Specialistes() {
                                 />
                             </div>
                             
-                            <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700">
-                                <input
-                                    type="checkbox"
-                                    id="is_active"
-                                    checked={formData.is_active}
-                                    onChange={(e) => setFormData({...formData, is_active: e.target.checked})}
-                                    className="h-5 w-5 text-[#1a365d] focus:ring-[#1a365d] border-gray-300 dark:border-gray-600 rounded"
-                                />
-                                <label htmlFor="is_active" className="ml-3 text-sm font-medium text-[#1b1b18] dark:text-[#EDEDEC]">
-                                    Spécialité active
-                                </label>
-                            </div>
-                            
                             <div className="flex gap-4 pt-6 border-t border-gray-200 dark:border-gray-700">
                                 <button
                                     type="button"
@@ -506,7 +455,7 @@ export default function Specialistes() {
                 isOpen={showDeleteConfirm}
                 onClose={cancelDelete}
                 onConfirm={confirmDelete}
-                itemName={specialistToDelete?.name}
+                itemName={specialistToDelete?.nom}
                 itemDetails={
                     specialistToDelete?.description && (
                         <p className="text-sm text-[#78786c] dark:text-[#9D9D99] mt-1">
