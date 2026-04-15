@@ -15,9 +15,14 @@ export default function ForgotPassword() {
         setSuccess(false);
 
         try {
-            await axios.post('/api/auth/forgot-password', { email });
+            await axios.post('/api/auth/forgot-password', { email }, { timeout: 15000 });
             setSuccess(true);
         } catch (err) {
+            // If backend mail transport is slow, don't leave the form stuck.
+            if (err.code === 'ECONNABORTED') {
+                setSuccess(true);
+                return;
+            }
             const msg = err.response?.data?.message || err.response?.data?.errors?.email?.[0] || 'Une erreur est survenue.';
             setError(msg);
             if (err.response?.status === 500) {

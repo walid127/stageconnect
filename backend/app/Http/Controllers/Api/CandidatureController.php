@@ -411,22 +411,25 @@ class CandidatureController extends Controller
             ]);
         }
 
-        // Envoyer un email selon le nouveau statut (mis en queue)
-        try {
-            if ($finalStatus === 'accepte') {
-                \Log::info('Mise en queue de l\'email d\'acceptation pour: ' . $application->formateur->email);
-                // Utiliser send() pour mettre en queue (la classe implémente ShouldQueue)
-                Mail::to($application->formateur->email)->send(new ApplicationAccepted($application));
-                \Log::info('Email d\'acceptation mis en queue avec succès');
-            } elseif ($finalStatus === 'refuse') {
-                \Log::info('Mise en queue de l\'email de refus pour: ' . $application->formateur->email);
-                // Utiliser send() pour mettre en queue (la classe implémente ShouldQueue)
-                Mail::to($application->formateur->email)->send(new ApplicationRejected($application));
-                \Log::info('Email de refus mis en queue avec succès');
-            }
-        } catch (\Exception $e) {
-            // Journaliser l'erreur mais ne pas faire échouer la requête
-            \Log::error('Erreur lors de l\'envoi de l\'email: ' . $e->getMessage());
+        // Envoyer l'email après la réponse pour éviter tout blocage utilisateur.
+        if (($finalStatus === 'accepte' || $finalStatus === 'refuse') && $application->formateur?->email) {
+            $targetEmail = $application->formateur->email;
+            $mailable = $finalStatus === 'accepte'
+                ? new ApplicationAccepted($application)
+                : new ApplicationRejected($application);
+
+            app()->terminating(function () use ($targetEmail, $mailable, $finalStatus) {
+                try {
+                    Mail::to($targetEmail)->send($mailable);
+                } catch (\Throwable $e) {
+                    \Log::error('Failed to send candidature status email', [
+                        'email' => $targetEmail,
+                        'status' => $finalStatus,
+                        'error' => $e->getMessage(),
+                        'exception' => get_class($e),
+                    ]);
+                }
+            });
         }
 
         // Recharger toutes les relations
@@ -487,11 +490,20 @@ class CandidatureController extends Controller
             'message' => "Félicitations! Votre demande pour la formation \"{$application->formation->titre}\" a été acceptée.",
         ]);
 
-        // Send email
-        try {
-            Mail::to($application->formateur->email)->send(new ApplicationAccepted($application));
-        } catch (\Exception $e) {
-            \Log::error('Erreur lors de l\'envoi de l\'email: ' . $e->getMessage());
+        // Send email after response to avoid blocking this endpoint.
+        if ($application->formateur?->email) {
+            $targetEmail = $application->formateur->email;
+            app()->terminating(function () use ($targetEmail, $application) {
+                try {
+                    Mail::to($targetEmail)->send(new ApplicationAccepted($application));
+                } catch (\Throwable $e) {
+                    \Log::error('Failed to send accepted candidature email', [
+                        'email' => $targetEmail,
+                        'error' => $e->getMessage(),
+                        'exception' => get_class($e),
+                    ]);
+                }
+            });
         }
 
         // Create history record

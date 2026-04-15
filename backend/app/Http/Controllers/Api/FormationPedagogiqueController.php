@@ -798,14 +798,23 @@ class FormationPedagogiqueController extends Controller
                 'message' => 'Votre formation pédagogique a été acceptée et a commencé.',
             ]);
 
-            // Send email if dates are set
-            if ($formationPed->date_deb && $formationPed->date_fin) {
-                try {
-                    Mail::to($trainer->utilisateur->email)->send(new PedagogicalTrainingStarted($trainer, $formationPed->date_deb->format('Y-m-d'), $formationPed->date_fin->format('Y-m-d')));
-                    Log::info('Email de formation pédagogique mis en queue pour: ' . $trainer->utilisateur->email);
-                } catch (\Exception $e) {
-                    Log::error('Erreur lors de la mise en queue de l\'email pédagogique: ' . $e->getMessage());
-                }
+            // Send email after response so the endpoint is never blocked by SMTP.
+            if ($formationPed->date_deb && $formationPed->date_fin && $trainer->utilisateur->email) {
+                $targetEmail = $trainer->utilisateur->email;
+                $startDate = $formationPed->date_deb->format('Y-m-d');
+                $endDate = $formationPed->date_fin->format('Y-m-d');
+
+                app()->terminating(function () use ($targetEmail, $trainer, $startDate, $endDate) {
+                    try {
+                        Mail::to($targetEmail)->send(new PedagogicalTrainingStarted($trainer, $startDate, $endDate));
+                    } catch (\Throwable $e) {
+                        Log::error('Failed to send pedagogical training email', [
+                            'email' => $targetEmail,
+                            'error' => $e->getMessage(),
+                            'exception' => get_class($e),
+                        ]);
+                    }
+                });
             }
         }
 

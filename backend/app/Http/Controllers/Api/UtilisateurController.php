@@ -120,23 +120,33 @@ class UtilisateurController extends Controller
         $oldStatus = $user->statut;
         $user->update(['statut' => $validated['status']]);
 
-        // Envoyer un email selon le nouveau statut (mis en queue)
-        try {
-            if ($validated['status'] === 'actif' && $oldStatus !== 'actif') {
-                \Log::info('Mise en queue de l\'email d\'activation pour: ' . $user->email);
-                // Utiliser send() pour mettre en queue (la classe implémente ShouldQueue)
-                Mail::to($user->email)->send(new UserActivated($user));
-                \Log::info('Email d\'activation mis en queue avec succès');
-            } elseif ($validated['status'] === 'inactif' && $oldStatus !== 'inactif') {
-                \Log::info('Mise en queue de l\'email de désactivation pour: ' . $user->email);
-                // Utiliser send() pour mettre en queue (la classe implémente ShouldQueue)
-                Mail::to($user->email)->send(new UserDeactivated($user));
-                \Log::info('Email de désactivation mis en queue avec succès');
-            }
-        } catch (\Exception $e) {
-            // Journaliser l'erreur mais ne pas faire échouer la requête
-            \Log::error('Erreur lors de la mise en queue de l\'email: ' . $e->getMessage());
-            \Log::error('Exception Type: ' . get_class($e));
+        // Envoyer l'email après la réponse pour éviter les blocages SMTP.
+        if ($user->email && $validated['status'] === 'actif' && $oldStatus !== 'actif') {
+            $targetEmail = $user->email;
+            app()->terminating(function () use ($targetEmail, $user) {
+                try {
+                    Mail::to($targetEmail)->send(new UserActivated($user));
+                } catch (\Throwable $e) {
+                    \Log::error('Failed to send user activated email', [
+                        'email' => $targetEmail,
+                        'error' => $e->getMessage(),
+                        'exception' => get_class($e),
+                    ]);
+                }
+            });
+        } elseif ($user->email && $validated['status'] === 'inactif' && $oldStatus !== 'inactif') {
+            $targetEmail = $user->email;
+            app()->terminating(function () use ($targetEmail, $user) {
+                try {
+                    Mail::to($targetEmail)->send(new UserDeactivated($user));
+                } catch (\Throwable $e) {
+                    \Log::error('Failed to send user deactivated email', [
+                        'email' => $targetEmail,
+                        'error' => $e->getMessage(),
+                        'exception' => get_class($e),
+                    ]);
+                }
+            });
         }
 
         return response()->json([

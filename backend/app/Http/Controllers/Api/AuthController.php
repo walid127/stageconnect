@@ -338,19 +338,31 @@ class AuthController extends Controller
         $token = Str::random(64);
         $email = $request->email;
 
-        DB::table('password_reset_tokens')->updateOrInsert(
-            ['email' => $email],
-            ['token' => Hash::make($token), 'created_at' => now()]
-        );
-
         try {
-            Mail::to($email)->send(new PasswordResetLink($token, $email));
-        } catch (\Exception $e) {
-            \Log::error('Erreur envoi email réinitialisation mot de passe: ' . $e->getMessage());
-            return response()->json([
-                'message' => 'Impossible d\'envoyer l\'email. Veuillez réessayer plus tard.',
-            ], 500);
+            DB::table('password_reset_tokens')->updateOrInsert(
+                ['email' => $email],
+                ['token' => Hash::make($token), 'created_at' => now()]
+            );
+        } catch (\Throwable $e) {
+            \Log::error('Forgot password token persistence failed', [
+                'email' => $email,
+                'error' => $e->getMessage(),
+                'exception' => get_class($e),
+            ]);
         }
+
+        // Respond quickly to the client, then attempt email sending during terminate phase.
+        app()->terminating(function () use ($email, $token) {
+            try {
+                Mail::to($email)->send(new PasswordResetLink($token, $email));
+            } catch (\Throwable $e) {
+                \Log::error('Forgot password mail send failed', [
+                    'email' => $email,
+                    'error' => $e->getMessage(),
+                    'exception' => get_class($e),
+                ]);
+            }
+        });
 
         return response()->json([
             'message' => 'Si cette adresse est enregistrée, vous recevrez un email avec le lien de réinitialisation.',

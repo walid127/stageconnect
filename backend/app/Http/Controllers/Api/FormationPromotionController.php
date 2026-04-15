@@ -374,17 +374,20 @@ class FormationPromotionController extends Controller
             ]);
         }
 
-        // Envoyer l'email (mis en queue)
-        try {
-            // Utiliser send() pour mettre en queue (la classe implémente ShouldQueue)
-            Mail::to($trainer->utilisateur->email)->send(new PromotionTrainingNotification($trainer, null, null));
-            Log::info('Email de formation de promotion mis en queue pour: ' . $trainer->utilisateur->email);
-        } catch (\Exception $e) {
-            Log::error('Erreur lors de la mise en queue de l\'email de promotion: ' . $e->getMessage());
-            return response()->json([
-                'message' => 'Erreur lors de l\'envoi de l\'email. Notification créée.',
-                'error' => $e->getMessage(),
-            ], 500);
+        // Envoyer l'email après la réponse pour éviter un blocage côté client.
+        if ($trainer->utilisateur?->email) {
+            $targetEmail = $trainer->utilisateur->email;
+            app()->terminating(function () use ($targetEmail, $trainer) {
+                try {
+                    Mail::to($targetEmail)->send(new PromotionTrainingNotification($trainer, null, null));
+                } catch (\Throwable $e) {
+                    Log::error('Failed to send promotion notification email', [
+                        'email' => $targetEmail,
+                        'error' => $e->getMessage(),
+                        'exception' => get_class($e),
+                    ]);
+                }
+            });
         }
 
         return response()->json([
@@ -678,14 +681,21 @@ class FormationPromotionController extends Controller
             ]);
         }
 
-        // Send email
-        try {
-            if ($trainer->utilisateur) {
-                Mail::to($trainer->utilisateur->email)->send(new PromotionTrainingNotification($trainer, $promotionType, null));
-                Log::info('Email de formation de promotion mis en queue pour: ' . $trainer->utilisateur->email);
-            }
-        } catch (\Exception $e) {
-            Log::error('Erreur lors de l\'envoi de l\'email de promotion: ' . $e->getMessage());
+        // Send email after response to keep endpoint fast and reliable.
+        if ($trainer->utilisateur?->email) {
+            $targetEmail = $trainer->utilisateur->email;
+            app()->terminating(function () use ($targetEmail, $trainer, $promotionType) {
+                try {
+                    Mail::to($targetEmail)->send(new PromotionTrainingNotification($trainer, $promotionType, null));
+                } catch (\Throwable $e) {
+                    Log::error('Failed to send promotion start email', [
+                        'email' => $targetEmail,
+                        'promotion_type' => $promotionType,
+                        'error' => $e->getMessage(),
+                        'exception' => get_class($e),
+                    ]);
+                }
+            });
         }
 
         return response()->json([
