@@ -195,7 +195,7 @@ export default function Statistiques() {
     };
 
     return (
-        <div className="app-container print:bg-white">
+        <div className="app-container print:bg-white overflow-x-hidden min-w-0">
             {/* Print helpers */}
             <style>{`
                 @media print {
@@ -292,7 +292,7 @@ export default function Statistiques() {
                 </p>
             </div>
 
-            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-6 sm:pb-16 pt-2 sm:pt-4 relative z-20 print:px-0 print:pt-0 print-container">
+            <div className="max-w-7xl mx-auto w-full min-w-0 px-2 sm:px-6 lg:px-8 pb-6 sm:pb-16 pt-2 sm:pt-4 relative z-20 print:px-0 print:pt-0 print-container">
                 
                 {stats.loading ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -307,28 +307,29 @@ export default function Statistiques() {
                     <>
                 {/* KPI SUMMARY BAR removed; numbers integrated into sections below */}
                 {/* SECTION 1: Statistiques des demandes de formation - WITH GRAPHIC */}
-                <div className="relative group mb-8 print:mb-4 avoid-break print-trim">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-red-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
-                    <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-6 overflow-hidden print:bg-white print:border print:border-gray-300 avoid-break print-trim">
+                <div className="relative group mb-8 print:mb-4 avoid-break print-trim overflow-x-clip">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-red-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500 pointer-events-none"></div>
+                    <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 sm:p-6 overflow-hidden print:bg-white print:border print:border-gray-300 avoid-break print-trim min-w-0">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange-100/30 to-transparent rounded-full -mr-32 -mt-32 blur-3xl print:hidden"></div>
                         
                         <div className="relative">
-                            <div className="flex items-center justify-between gap-3 mb-4">
-                                <div className="w-10 h-10 bg-gradient-to-br from-[#ea580c] to-[#c2410c] rounded-xl flex items-center justify-center shadow-lg">
-                                    <span className="text-xl">📝</span>
+                            <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-4 min-w-0">
+                                <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 bg-gradient-to-br from-[#ea580c] to-[#c2410c] rounded-xl flex items-center justify-center shadow-lg">
+                                    <span className="text-lg sm:text-xl">📝</span>
                                 </div>
-                                <div className="flex-1">
-                                    <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">Statistiques des demandes de formation</h2>
+                                <div className="flex-1 min-w-0">
+                                    <h2 className="text-base sm:text-xl font-extrabold text-gray-900 dark:text-white break-words">Statistiques des demandes de formation</h2>
                                     <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Analyse des demandes de formation</p>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs">Total: <strong>{stats.applications.total}</strong></span>
+                                <div className="flex items-center gap-2 w-full sm:w-auto justify-end sm:justify-start">
+                                    <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs whitespace-nowrap">Total: <strong>{stats.applications.total}</strong></span>
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 min-w-0">
                                 {/* Left: Donut Chart */}
-                                <div className="flex justify-center items-center">
+                                <div className="flex justify-center items-center min-w-0 overflow-hidden">
+                                    <div className="w-full max-w-[min(100%,240px)] sm:max-w-none flex justify-center scale-[0.92] sm:scale-100 origin-center">
                                     <DiagrammeAnneau
                                         size={220}
                                         strokeWidth={40}
@@ -338,11 +339,12 @@ export default function Statistiques() {
                                             { label: 'Refusées', value: stats.applications.rejected || 0, color: '#ef4444' },
                                         ]}
                                     />
+                                    </div>
                                 </div>
 
                                 {/* Right: All Statistics */}
-                                <div className="space-y-2">
-                                    <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 rounded-lg p-3 flex justify-between items-center border-l-4 border-orange-500">
+                                <div className="space-y-2 min-w-0">
+                                    <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 rounded-lg p-3 flex justify-between items-center gap-2 border-l-4 border-orange-500">
                                         <span className="text-orange-700 dark:text-orange-300 text-xs font-medium">⏳ En Attente</span>
                                         <span className="text-2xl font-black text-orange-600 dark:text-orange-400">{stats.applications.pending}</span>
                                     </div>
@@ -366,28 +368,29 @@ export default function Statistiques() {
                 </div>
 
                 {/* SECTION 2: Statistiques des Utilisateurs - WITH GRAPHIC */}
-                <div className="relative group mb-8 print:mb-4 avoid-break print-trim">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#1e40af] to-[#3b82f6] rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
-                    <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-6 overflow-hidden print:bg-white print:border print:border-gray-300 avoid-break print-trim">
+                <div className="relative group mb-8 print:mb-4 avoid-break print-trim overflow-x-clip">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#1e40af] to-[#3b82f6] rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500 pointer-events-none"></div>
+                    <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 sm:p-6 overflow-hidden print:bg-white print:border print:border-gray-300 avoid-break print-trim min-w-0">
                         <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-blue-100/30 to-transparent rounded-full -ml-32 -mt-32 blur-3xl print:hidden"></div>
                         
                         <div className="relative">
-                            <div className="flex items-center justify-between gap-3 mb-4">
-                                <div className="w-10 h-10 bg-gradient-to-br from-[#1e40af] to-[#1e3a8a] rounded-xl flex items-center justify-center shadow-lg">
-                                    <span className="text-xl">👥</span>
+                            <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-4 min-w-0">
+                                <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 bg-gradient-to-br from-[#1e40af] to-[#1e3a8a] rounded-xl flex items-center justify-center shadow-lg">
+                                    <span className="text-lg sm:text-xl">👥</span>
                                 </div>
-                                <div className="flex-1">
-                                    <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">Statistiques des Utilisateurs</h2>
-                                    <p className="text_gray-600 dark:text_gray-400 text-xs mt-1">Répartition et activité des formateurs</p>
+                                <div className="flex-1 min-w-0">
+                                    <h2 className="text-base sm:text-xl font-extrabold text-gray-900 dark:text-white break-words">Statistiques des Utilisateurs</h2>
+                                    <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">Répartition et activité des formateurs</p>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs">Total: <strong>{stats.users.total_users}</strong></span>
+                                <div className="flex items-center gap-2 w-full sm:w-auto justify-end sm:justify-start">
+                                    <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs whitespace-nowrap">Total: <strong>{stats.users.total_users}</strong></span>
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 min-w-0">
                                 {/* Left: Circular Progress */}
-                                <div className="flex flex-col items-center justify-center gap-4">
+                                <div className="flex flex-col items-center justify-center gap-4 min-w-0 overflow-hidden">
+                                    <div className="scale-[0.92] sm:scale-100 origin-center">
                                     <ProgressionCirculaire
                                         percentage={stats.users.total_users > 0 ? (stats.users.active_users / stats.users.total_users) * 100 : 0}
                                         size={180}
@@ -395,6 +398,7 @@ export default function Statistiques() {
                                         color="#1e40af"
                                         label="Taux d'Activité"
                                     />
+                                    </div>
                                     <div className="text-center">
                                         <p className="text-3xl font-black text-blue-600 dark:text-blue-400">{stats.users.active_users}</p>
                                         <p className="text-gray-600 dark:text-gray-400 text-xs mt-1">utilisateurs actifs sur {stats.users.total_users}</p>
@@ -402,9 +406,9 @@ export default function Statistiques() {
                                 </div>
 
                                 {/* Right: All Statistics */}
-                                <div className="space-y-2">
-                                    <div className="bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-xl p-4 flex justify-between items-center border-l-4 border-indigo-500">
-                                        <span className="text-indigo-700 dark:text-indigo-300 text-sm font-medium">👨‍💼 gestionaires</span>
+                                <div className="space-y-2 min-w-0">
+                                    <div className="bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-xl p-3 sm:p-4 flex justify-between items-center gap-2 border-l-4 border-indigo-500">
+                                        <span className="text-indigo-700 dark:text-indigo-300 text-xs sm:text-sm font-medium min-w-0 break-words">👨‍💼 gestionaires</span>
                                         <span className="text-3xl font-black text-indigo-600 dark:text-indigo-400">{stats.users.total_admin}</span>
                                     </div>
                                     <div className="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-xl p-4 flex justify-between items-center border-l-4 border-purple-500">
@@ -430,30 +434,30 @@ export default function Statistiques() {
                 </div>
 
                 {/* SECTION 3: Statistiques des Formations - WITH TYPE FILTER */}
-                <div className="relative group avoid-break print-trim">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#d4af37] to-[#b8860b] rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
-                    <div className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 p-10 overflow-hidden print:bg-white print:border print:border-gray-300 avoid-break print-trim">
+                <div className="relative group avoid-break print-trim overflow-x-clip">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#d4af37] to-[#b8860b] rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500 pointer-events-none"></div>
+                    <div className="relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 p-4 sm:p-6 md:p-8 lg:p-10 overflow-hidden print:bg-white print:border print:border-gray-300 avoid-break print-trim min-w-0">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-yellow-100/30 to-transparent rounded-full -mr-32 -mt-32 blur-3xl print:hidden"></div>
                         
                         <div className="relative">
-                            <div className="flex items-center justify-between gap-4 mb-4">
-                                <div className="w-14 h-14 bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-2xl flex items-center justify-center shadow-xl">
-                                    <span className="text-2xl">🎯</span>
+                            <div className="flex flex-wrap items-start justify-between gap-3 mb-4 min-w-0">
+                                <div className="w-11 h-11 sm:w-14 sm:h-14 shrink-0 bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl">
+                                    <span className="text-xl sm:text-2xl">🎯</span>
                                 </div>
-                                <div className="flex-1">
-                                    <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">Répartition des Formations par Type</h2>
-                                    <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Vue synthétique par type de formation</p>
+                                <div className="flex-1 min-w-0">
+                                    <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white break-words leading-tight">Répartition des Formations par Type</h2>
+                                    <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mt-1">Vue synthétique par type de formation</p>
                                 </div>
-                                <div className="hidden md:flex items-center gap-2">
-                                    <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs">Actifs: <strong>{stats.trainings.active}</strong></span>
-                                    <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs">Total: <strong>{stats.trainings.total}</strong></span>
+                                <div className="flex flex-wrap items-center gap-2 w-full md:w-auto md:justify-end">
+                                    <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs whitespace-nowrap">Actifs: <strong>{stats.trainings.active}</strong></span>
+                                    <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs whitespace-nowrap">Total: <strong>{stats.trainings.total}</strong></span>
                                 </div>
                             </div>
 
                             {/* Removed redundant overall grid to reduce repetition */}
 
                             {/* Segmented Control */}
-                            <div className="inline-flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1 text-sm">
+                            <div className="flex flex-wrap gap-1 w-full sm:w-auto sm:inline-flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1 text-xs sm:text-sm">
                                 {[
                                     { key: 'all', label: 'Tous' },
                                     { key: 'regular', label: 'Réguliers' },
@@ -463,7 +467,7 @@ export default function Statistiques() {
                                     <button
                                         key={btn.key}
                                         onClick={() => setActiveType(btn.key)}
-                                        className={`${activeType === btn.key ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow' : 'text-gray-600 dark:text-gray-300'} px-4 py-2 rounded-md transition-colors`}
+                                        className={`${activeType === btn.key ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow' : 'text-gray-600 dark:text-gray-300'} flex-1 min-w-[calc(50%-0.125rem)] sm:min-w-0 sm:flex-none px-2 py-1.5 sm:px-4 sm:py-2 rounded-md transition-colors`}
                                     >
                                         {btn.label}
                                     </button>
@@ -471,15 +475,16 @@ export default function Statistiques() {
                             </div>
 
                             {/* Breakdown by Formation Type */}
-                            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 min-w-0">
                                 {/* Regular */}
                                 {(activeType === 'all' || activeType === 'regular') && (
-                                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
-                                    <div className="flex items-center justify-between mb-4">
-                                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Formations</h3>
-                                        <span className="text-gray-500">📚</span>
+                                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6 min-w-0 overflow-hidden">
+                                    <div className="flex items-center justify-between mb-4 gap-2 min-w-0">
+                                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">Formations</h3>
+                                        <span className="text-gray-500 shrink-0">📚</span>
                                     </div>
-                                    <div className="flex justify-center">
+                                    <div className="flex justify-center min-w-0">
+                                        <div className="scale-90 sm:scale-100 origin-center">
                                         <DiagrammeAnneau
                                             size={180}
                                             strokeWidth={42}
@@ -492,17 +497,19 @@ export default function Statistiques() {
                                                 ];
                                             })()}
                                         />
+                                        </div>
                                     </div>
                                 </div>)}
 
                                 {/* Pedagogical */}
                                 {(activeType === 'all' || activeType === 'pedagogical') && (
-                                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
-                                    <div className="flex items-center justify-between mb-4">
-                                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Formation pédagogique</h3>
-                                        <span className="text-gray-500">🎓</span>
+                                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6 min-w-0 overflow-hidden">
+                                    <div className="flex items-center justify-between mb-4 gap-2 min-w-0">
+                                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">Formation pédagogique</h3>
+                                        <span className="text-gray-500 shrink-0">🎓</span>
                                     </div>
-                                    <div className="flex justify-center">
+                                    <div className="flex justify-center min-w-0">
+                                        <div className="scale-90 sm:scale-100 origin-center">
                                         <DiagrammeAnneau
                                             size={180}
                                             strokeWidth={42}
@@ -518,17 +525,19 @@ export default function Statistiques() {
                                                 ];
                                             })()}
                                         />
+                                        </div>
                                     </div>
                                 </div>)}
 
                                 {/* Promotion */}
                                 {(activeType === 'all' || activeType === 'promotion') && (
-                                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
-                                    <div className="flex items-center justify-between mb-4">
-                                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Formation de promotion</h3>
-                                        <span className="text-gray-500">⭐</span>
+                                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6 min-w-0 overflow-hidden">
+                                    <div className="flex items-center justify-between mb-4 gap-2 min-w-0">
+                                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">Formation de promotion</h3>
+                                        <span className="text-gray-500 shrink-0">⭐</span>
                                     </div>
-                                    <div className="flex justify-center">
+                                    <div className="flex justify-center min-w-0">
+                                        <div className="scale-90 sm:scale-100 origin-center">
                                         <DiagrammeAnneau
                                             size={180}
                                             strokeWidth={42}
@@ -544,6 +553,7 @@ export default function Statistiques() {
                                                 ];
                                             })()}
                                         />
+                                        </div>
                                     </div>
                                 </div>)}
                             </div>
