@@ -250,8 +250,8 @@ export default function Gestionaires() {
                     <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
                         <div className="overflow-x-auto">
                         <table className="w-full min-w-[900px]">
-                            <thead className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] text-white">
-                                <tr>
+                            <thead>
+                                <tr className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] text-white">
                                     <th className="px-6 py-4 text-center font-semibold">Nom</th>
                                     <th className="px-6 py-4 text-center font-semibold">Email</th>
                                     <th className="px-6 py-4 text-center font-semibold">Téléphone</th>

@@ -470,7 +470,7 @@ export default function StageRegulierGestionaire() {
                     <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
                         <div className="overflow-x-auto">
                             {/* List Header */}
-                            <div className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
+                            <div className="min-w-[980px] bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
                                 <div className="grid min-w-[980px] grid-cols-11 gap-2 text-white font-semibold">
                                     <div className="col-span-1 text-center">#</div>
                                     <div className="col-span-3 text-center">Titre de la Formation</div>

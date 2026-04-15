@@ -538,8 +538,8 @@ export default function GestionaireDiplomas() {
                                 <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
                                     <div className="overflow-x-auto">
                                         <table className="w-full min-w-[980px]">
-                                            <thead className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] text-white">
-                                                <tr>
+                                            <thead>
+                                                <tr className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] text-white">
                                                     <th className="px-6 py-4 text-center text-sm font-semibold">Numéro</th>
                                                     <th className="px-6 py-4 text-center text-sm font-semibold">Formation</th>
                                                     <th className="px-6 py-4 text-center text-sm font-semibold">Formateur</th>

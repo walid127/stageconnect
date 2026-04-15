@@ -204,7 +204,7 @@ export default function StagePedagogique() {
                         <div className="p-6">
                             <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-x-auto">
                                 {/* Table Header */}
-                                <div className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-3">
+                                <div className="min-w-[900px] bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-3">
                                     <div className="grid min-w-[900px] grid-cols-12 gap-2 text-white font-semibold">
                                         <div className="col-span-2 text-center">Type</div>
                                         <div className="col-span-3 text-center">Dates</div>

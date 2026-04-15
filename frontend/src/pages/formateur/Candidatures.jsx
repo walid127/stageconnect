@@ -367,7 +367,7 @@ export default function CandidaturesFormateur() {
                     ) : (
                         <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-x-auto">
                             {/* List Header */}
-                            <div className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
+                            <div className="min-w-[1100px] bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
                                 <div className="grid min-w-[1100px] grid-cols-12 gap-4 text-white font-semibold items-center">
                                     <div className="col-span-1 flex items-center justify-center">#</div>
                                     <div className="col-span-3 flex items-center justify-center">Formation</div>
