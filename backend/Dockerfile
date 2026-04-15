@@ -13,6 +13,8 @@ WORKDIR /var/www/html
 
 COPY . .
 
+COPY docker/php/uploads.ini /usr/local/etc/php/conf.d/99-uploads.ini
+
 RUN composer install --no-dev --optimize-autoloader
 
 # Defer key generation and config caching to container startup so runtime env vars are used.

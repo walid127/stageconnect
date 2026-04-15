@@ -174,6 +174,9 @@ return [
         'phone' => [
             'unique' => 'Ce numéro de téléphone est déjà utilisé.',
         ],
+        'dossier' => [
+            'uploaded' => 'Le serveur n\'a pas reçu le fichier (souvent : fichier trop lourd pour la limite PHP, ou envoi interrompu). Utilisez un PDF/ZIP/RAR de moins de 10 Mo. Après déploiement, les limites PHP sont augmentées sur l\'API.',
+        ],
     ],
 
     /*
