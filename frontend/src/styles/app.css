@@ -44,8 +44,32 @@
 /* ============================================
    Base Styles
    ============================================ */
+/* Stop horizontal scroll / blank strip on the right on narrow viewports */
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    position: relative;
+}
+
+#root {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
 .app-container {
     min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     background: linear-gradient(to bottom right, #f9fafb, #eff6ff, #eef2ff);
 }
 
@@ -56,6 +80,9 @@
 /* Auth Pages - Different background */
 .auth-container {
     min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     background: linear-gradient(to bottom right, #f9fafb, #eff6ff, #eef2ff);
 }
 
