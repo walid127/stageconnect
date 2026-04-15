@@ -78,16 +78,16 @@ export default function NavigationGestionaire() {
     }, [showDropdown, showNotificationDropdown, showMessageDropdown, showFormateursDropdown]);
 
     return (
-        <nav className="sticky top-0 z-50 bg-gradient-to-r from-[#1a365d] to-[#2d3748] shadow-xl border-b border-[#4a5568] backdrop-blur-sm">
-            <div className="w-full px-6 lg:px-8">
-                <div className="flex justify-between items-center h-20 w-full">
+        <nav className="sticky top-0 z-50 bg-gradient-to-r from-[#1a365d] to-[#2d3748] shadow-lg sm:shadow-xl border-b border-[#4a5568] backdrop-blur-sm">
+            <div className="w-full px-3 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center h-14 sm:h-16 lg:h-20 w-full">
                     {/* Côté gauche - Logo */}
                     <Link to="/gestionaire/dashboard" className="flex items-center group shrink-0">
-                        <div className="bg-[#d4af37] px-3 py-1 rounded-lg shadow-lg transform group-hover:scale-105 transition-transform duration-300">
+                        <div className="bg-[#d4af37] px-2 py-0.5 sm:px-3 sm:py-1 rounded-md sm:rounded-lg shadow-md sm:shadow-lg transform group-hover:scale-105 transition-transform duration-300">
                             <img 
                                 src="/StageConnect-logo.png" 
                                 alt="StageConnect" 
-                                className="h-10 sm:h-12 w-auto object-contain"
+                                className="h-7 w-auto max-h-8 sm:h-10 md:h-12 object-contain"
                             />
                         </div>
                     </Link>
@@ -96,13 +96,13 @@ export default function NavigationGestionaire() {
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl text-white hover:bg-white/10 transition-colors"
+                        className="lg:hidden flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl text-white hover:bg-white/10 transition-colors"
                         aria-label="Menu"
                     >
                         {mobileMenuOpen ? (
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                         ) : (
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+                            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
                         )}
                     </button>
                     
@@ -164,9 +164,9 @@ export default function NavigationGestionaire() {
                     </div>
                     
                     {/* Côté droit - Notifications, User (desktop: full, mobile: icons only) */}
-                    <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
                         {/* Cloches de Notification et Message */}
-                        <div className="flex items-center gap-2 bg-[#4a5568]/30 rounded-2xl p-1 backdrop-blur-sm">
+                        <div className="flex items-center gap-1 sm:gap-2 bg-[#4a5568]/30 rounded-xl sm:rounded-2xl p-0.5 sm:p-1 backdrop-blur-sm">
                             <ClocheNotification 
                                 showDropdown={showNotificationDropdown}
                                 onToggle={handleNotificationToggle}
@@ -181,9 +181,9 @@ export default function NavigationGestionaire() {
                         <div className="relative" ref={dropdownRef}>
                             <button
                                 onClick={handleUserToggle}
-                                className="flex items-center space-x-3 bg-[#4a5568]/30 hover:bg-[#4a5568]/50 rounded-2xl px-4 py-2 transition-all duration-200 backdrop-blur-sm"
+                                className="flex items-center space-x-2 sm:space-x-3 bg-[#4a5568]/30 hover:bg-[#4a5568]/50 rounded-xl sm:rounded-2xl px-2 py-1.5 sm:px-4 sm:py-2 transition-all duration-200 backdrop-blur-sm"
                             >
-                                <div className="w-10 h-10 bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-lg sm:rounded-xl flex items-center justify-center text-white font-bold text-sm sm:text-lg shadow-md sm:shadow-lg">
                                     {user?.nom?.charAt(0)?.toUpperCase() || 'G'}
                                 </div>
                                 <div className="text-left hidden sm:block">
@@ -231,18 +231,18 @@ export default function NavigationGestionaire() {
             {/* Mobile menu panel */}
             {mobileMenuOpen && (
                 <>
-                    <div className="lg:hidden fixed inset-0 bg-black/50 z-40 top-20" onClick={() => setMobileMenuOpen(false)} aria-hidden="true" />
-                    <div className="lg:hidden fixed top-20 left-0 right-0 z-50 max-h-[calc(100vh-5rem)] overflow-y-auto bg-gradient-to-b from-[#1a365d] to-[#2d3748] border-b border-[#4a5568] shadow-2xl">
-                        <div className="px-4 py-4 space-y-1">
-                            <Link to="/gestionaire/dashboard" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium">Dashboard</Link>
-                            <Link to="/gestionaire/statistics" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium">Statistiques</Link>
-                            <Link to="/gestionaire/formateurs" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium">📋 Liste des Formateurs</Link>
-                            <Link to="/gestionaire/utilisateurs" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium">👥 Comptes Formateurs</Link>
-                            <Link to="/gestionaire/stages" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium">Formations</Link>
-                            <Link to="/gestionaire/diplomes" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium">Diplômes</Link>
-                            <Link to="/gestionaire/specialistes" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium">Spécialités</Link>
-                            <Link to="/gestionaire/grades" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium">Grades</Link>
-                            <Link to="/gestionaire/profile" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium">Mon Profil</Link>
+                    <div className="lg:hidden fixed inset-0 bg-black/50 z-40 top-14 sm:top-16" onClick={() => setMobileMenuOpen(false)} aria-hidden="true" />
+                    <div className="lg:hidden fixed top-14 sm:top-16 left-0 right-0 z-50 max-h-[calc(100vh-3.5rem)] sm:max-h-[calc(100vh-4rem)] overflow-y-auto bg-gradient-to-b from-[#1a365d] to-[#2d3748] border-b border-[#4a5568] shadow-2xl">
+                        <div className="px-3 py-3 sm:px-4 sm:py-4 space-y-0.5 sm:space-y-1">
+                            <Link to="/gestionaire/dashboard" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium text-sm sm:text-base">Dashboard</Link>
+                            <Link to="/gestionaire/statistics" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium text-sm sm:text-base">Statistiques</Link>
+                            <Link to="/gestionaire/formateurs" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium text-sm sm:text-base">📋 Liste des Formateurs</Link>
+                            <Link to="/gestionaire/utilisateurs" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium text-sm sm:text-base">👥 Comptes Formateurs</Link>
+                            <Link to="/gestionaire/stages" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium text-sm sm:text-base">Formations</Link>
+                            <Link to="/gestionaire/diplomes" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium text-sm sm:text-base">Diplômes</Link>
+                            <Link to="/gestionaire/specialistes" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium text-sm sm:text-base">Spécialités</Link>
+                            <Link to="/gestionaire/grades" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium text-sm sm:text-base">Grades</Link>
+                            <Link to="/gestionaire/profile" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl text-white/90 hover:text-white hover:bg-white/10 font-medium text-sm sm:text-base">Mon Profil</Link>
                         </div>
                     </div>
                 </>
