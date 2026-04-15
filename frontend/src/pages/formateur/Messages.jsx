@@ -249,22 +249,22 @@ export default function FormateurMessages() {
                     <div className="flex min-h-0 h-[min(600px,calc(100dvh-12rem))] md:h-[600px]">
                         {/* Users List */}
                         <div className="w-1/3 min-w-0 border-r border-gray-200 dark:border-gray-700 bg-gradient-to-b from-gray-50/80 to-gray-100/80 dark:from-gray-800/80 dark:to-gray-900/80 flex flex-col min-h-0">
-                            <div className="p-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-[#1a365d] to-[#2d3748]">
-                                <h3 className="font-bold text-white text-lg">Conversations</h3>
-                                <p className="text-white/80 text-sm mt-1">Sélectionnez un gestionaire</p>
+                            <div className="px-3 py-2.5 sm:px-4 sm:py-3 md:p-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-[#1a365d] to-[#2d3748]">
+                                <h3 className="font-bold text-white text-sm sm:text-base md:text-lg leading-tight">Conversations</h3>
+                                <p className="text-white/80 text-[11px] sm:text-xs md:text-sm mt-0.5 sm:mt-1 leading-snug">Sélectionnez un gestionaire</p>
                             </div>
                             
                             {/* Search Bar */}
-                            <div className="p-4 border-b border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50">
+                            <div className="p-2.5 sm:p-3 md:p-4 border-b border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50">
                                 <div className="relative">
                                     <input
                                         type="text"
                                         placeholder="Rechercher par nom ou gestionaire..."
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
-                                        className="w-full px-4 py-2 pl-10 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-[#1a365d] focus:border-[#1a365d] transition-all"
+                                        className="w-full px-3 py-1.5 sm:py-2 pl-9 sm:pl-10 text-sm border border-gray-300 dark:border-gray-600 rounded-lg sm:rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-[#1a365d] focus:border-[#1a365d] transition-all"
                                     />
-                                    <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="absolute left-2.5 sm:left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
                                     {searchQuery && (
@@ -306,14 +306,14 @@ export default function FormateurMessages() {
                                         <div
                                             key={userItem.id}
                                             onClick={() => handleUserSelect(userItem)}
-                                            className={`p-4 border-b border-gray-100 dark:border-gray-700 cursor-pointer hover:bg-white/50 dark:hover:bg-gray-700/50 transition-all duration-200 ${
+                                            className={`min-w-0 p-3 sm:p-4 border-b border-gray-100 dark:border-gray-700 cursor-pointer hover:bg-white/50 dark:hover:bg-gray-700/50 transition-all duration-200 ${
                                                 selectedUser?.id === userItem.id ? 'bg-gradient-to-r from-[#1a365d]/10 to-[#2d3748]/10 border-l-4 border-l-[#1a365d] shadow-lg' : ''
                                             }`}
                                         >
-                                            <div className="flex items-center justify-between">
-                                                <div className="flex items-center space-x-3">
-                                                    <div>
-                                                        <h4 className="font-semibold text-gray-900 dark:text-white">
+                                            <div className="flex items-center justify-between gap-2 min-w-0">
+                                                <div className="flex min-w-0 flex-1 items-center space-x-3">
+                                                    <div className="min-w-0">
+                                                        <h4 className="font-semibold text-gray-900 dark:text-white truncate">
                                                             {userItem.nom}
                                                         </h4>
                                                     </div>
@@ -325,7 +325,7 @@ export default function FormateurMessages() {
                                                 )}
                                             </div>
                                             {lastMessage && (
-                                                <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 truncate">
+                                                <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 min-w-0 break-words [overflow-wrap:anywhere] line-clamp-2">
                                                     {lastMessage.corps}
                                                 </p>
                                             )}
@@ -340,18 +340,18 @@ export default function FormateurMessages() {
                             {selectedUser ? (
                                 <>
                                     {/* Chat Header */}
-                                    <div className="p-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-[#1a365d] to-[#2d3748]">
-                                        <div className="flex items-center justify-between">
-                                            <div className="flex items-center space-x-4">
-                                                <div>
-                                                    <h3 className="font-bold text-white text-lg">
+                                    <div className="px-3 py-2.5 sm:px-4 sm:py-3 md:p-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-[#1a365d] to-[#2d3748]">
+                                        <div className="flex items-center justify-between gap-2">
+                                            <div className="flex items-center space-x-2 sm:space-x-4 min-w-0">
+                                                <div className="min-w-0">
+                                                    <h3 className="font-bold text-white text-sm sm:text-base md:text-lg truncate">
                                                         {selectedUser.nom}
                                                     </h3>
                                                 </div>
                                             </div>
                                             <button
                                                 onClick={handleDeleteConversation}
-                                                className="px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded-md transition-all duration-200 font-medium text-xs shadow-sm"
+                                                className="shrink-0 px-2.5 py-1 sm:px-3 bg-red-600 hover:bg-red-700 text-white rounded-md transition-all duration-200 font-medium text-[11px] sm:text-xs shadow-sm"
                                             >
                                                 Supprimer
                                             </button>
@@ -363,17 +363,17 @@ export default function FormateurMessages() {
                                         {getConversationWithUser(selectedUser.id).map((message) => (
                                             <div
                                                 key={message.id}
-                                                className={`flex ${message.expediteur_id === user.id ? 'justify-end' : 'justify-start'} group`}
+                                                className={`flex min-w-0 w-full ${message.expediteur_id === user.id ? 'justify-end' : 'justify-start'} group`}
                                             >
-                                                <div className="flex items-end space-x-2">
+                                                <div className="flex min-w-0 max-w-full items-end gap-2">
                                                     <div
-                                                        className={`max-w-xs lg:max-w-md px-4 py-2 rounded-2xl ${
+                                                        className={`min-w-0 max-w-[min(20rem,calc(100vw-5rem))] sm:max-w-xs lg:max-w-md px-4 py-2 rounded-2xl ${
                                                         message.expediteur_id === user.id
                                                             ? 'bg-gradient-to-r from-[#2F80ED] to-[#4C9CFF] text-white'
                                                             : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white'
                                                         }`}
                                                     >
-                                                        <p className="text-sm">{message.corps}</p>
+                                                        <p className="text-sm whitespace-pre-wrap break-words [overflow-wrap:anywhere] [word-break:break-word]">{message.corps}</p>
                                                         <p className={`text-xs mt-1 ${
                                                             message.expediteur_id === user.id
                                                                 ? 'text-white/70'
