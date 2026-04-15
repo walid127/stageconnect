@@ -76,7 +76,7 @@ export default function ForgotPassword() {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="form-input"
-                                    placeholder="votre@email.com"
+                                    placeholder="stageconnect@gmail.com"
                                 />
                             </div>
                             <button

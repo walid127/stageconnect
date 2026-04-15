@@ -414,7 +414,7 @@ export default function FormateurProfile() {
                                             value={formData.email}
                                             onChange={handleInputChange}
                                             className="w-full px-3 sm:px-4 py-2.5 sm:py-3.5 border-2 border-gray-200 dark:border-gray-700 rounded-xl sm:rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none text-sm sm:text-base"
-                                            placeholder="votre@email.com"
+                                            placeholder="stageconnect@gmail.com"
                                         />
                                     </div>
                                 </div>

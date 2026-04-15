@@ -324,7 +324,7 @@ export default function Register() {
                                     value={formData.email}
                                     onChange={handleChange}
                                     className="form-input"
-                                    placeholder="walid@gmail.com"
+                                    placeholder="stageconnect@gmail.com"
                                 />
                             </div>
 

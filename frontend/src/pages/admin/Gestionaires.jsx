@@ -360,7 +360,7 @@ export default function Gestionaires() {
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all outline-none"
-                                        placeholder="email@example.com"
+                                        placeholder="stageconnect@gmail.com"
                                     />
                                 </div>
                                 <div>
@@ -470,7 +470,7 @@ export default function Gestionaires() {
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         className="w-full px-3 py-2.5 border-2 border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all outline-none text-sm"
-                                        placeholder="email@example.com"
+                                        placeholder="stageconnect@gmail.com"
                                     />
                                 </div>
                                 <div>
