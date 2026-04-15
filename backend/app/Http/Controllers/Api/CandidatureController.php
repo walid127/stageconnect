@@ -78,7 +78,7 @@ class CandidatureController extends Controller
     {
         $validated = $request->validate([
             'formation_id' => 'required|exists:formations,id',
-            'dossier' => 'required|file|mimes:pdf,zip,rar|max:10240', // Max 10MB, PDF or ZIP/RAR
+            'dossier' => $this->dossierFileRules(),
         ]);
 
         // Vérifier que l'utilisateur est formateur
@@ -548,7 +548,7 @@ class CandidatureController extends Controller
         }
 
         $validated = $request->validate([
-            'dossier' => 'required|file|mimes:pdf,zip,rar|max:10240',
+            'dossier' => $this->dossierFileRules(),
         ]);
 
         // Delete old dossier file
@@ -725,6 +725,35 @@ class CandidatureController extends Controller
         return response()->json([
             'message' => 'Emploi du temps supprimé avec succès!',
         ]);
+    }
+
+    /**
+     * Validation rules for dossier uploads. Extension-based checks are more reliable than
+     * mimes alone (browsers/OSes report inconsistent MIME types for pdf/zip/rar).
+     *
+     * @return array<int, mixed>
+     */
+    private function dossierFileRules(): array
+    {
+        return [
+            'required',
+            'file',
+            'max:10240',
+            function (string $attribute, mixed $value, \Closure $fail): void {
+                if (!$value instanceof \Illuminate\Http\UploadedFile) {
+                    $fail('Un fichier dossier est requis.');
+                    return;
+                }
+                if (!$value->isValid()) {
+                    $fail('Le fichier est invalide ou dépasse la limite d\'envoi du serveur (réduisez la taille, max. 10 Mo).');
+                    return;
+                }
+                $ext = strtolower($value->getClientOriginalExtension());
+                if (! in_array($ext, ['pdf', 'zip', 'rar'], true)) {
+                    $fail('Le dossier doit être un fichier PDF, ZIP ou RAR.');
+                }
+            },
+        ];
     }
 }
 

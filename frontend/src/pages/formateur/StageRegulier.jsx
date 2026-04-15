@@ -154,10 +154,16 @@ export default function StageRegulier() {
             return;
         }
 
+        const maxBytes = 10 * 1024 * 1024;
+        if (dossierFile.size > maxBytes) {
+            showMessagePopup('Le fichier dépasse 10 Mo. Veuillez choisir un fichier plus petit.', 'error');
+            return;
+        }
+
         setSubmitting(true);
         try {
             const formData = new FormData();
-            formData.append('formation_id', selectedTraining.id);
+            formData.append('formation_id', String(selectedTraining.id));
             formData.append('dossier', dossierFile);
 
             await axios.post('/api/candidatures', formData);
@@ -177,13 +183,14 @@ export default function StageRegulier() {
         } catch (error) {
             console.error('Erreur lors de la soumission de la demande de formation:', error);
             let messageErreur = 'Erreur lors de l\'envoi de la demande de formation';
-            
-            if (error.response?.data?.message) {
-                messageErreur = error.response.data.message;
-            } else if (error.response?.data?.errors) {
-                const errors = error.response.data.errors;
-                const firstError = Object.values(errors)[0];
-                messageErreur = Array.isArray(firstError) ? firstError[0] : firstError;
+            const errData = error.response?.data;
+            if (errData?.errors) {
+                const parts = Object.values(errData.errors).flat().filter(Boolean);
+                if (parts.length) {
+                    messageErreur = parts.join(' ');
+                }
+            } else if (errData?.message) {
+                messageErreur = errData.message;
             }
             
             showMessagePopup(messageErreur, 'error');
