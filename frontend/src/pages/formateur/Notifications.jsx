@@ -234,25 +234,25 @@ export default function FormateurNotifications() {
             
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 sm:py-8">
                 <div className="bg-white dark:bg-[#1b1b18] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
-                    <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    <div className="px-3 sm:px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                            <div className="min-w-0">
+                                <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
                                     Notifications
                                 </h1>
-                                <p className="text-gray-600 dark:text-gray-400 mt-1">
+                                <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm sm:text-base">
                                     {unreadCount} notification{unreadCount > 1 ? 's' : ''} non lue{unreadCount > 1 ? 's' : ''}
                                 </p>
                             </div>
-                            <div className="flex items-center gap-4">
+                            <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full sm:w-auto sm:justify-end min-w-0">
                                 <button
                                     onClick={fetchNotifications}
                                     disabled={loading}
-                                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 text-white rounded-lg transition-colors font-medium text-sm"
+                                    className="flex items-center justify-center gap-2 shrink-0 px-3 py-2 sm:px-4 bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 text-white rounded-lg transition-colors font-medium text-xs sm:text-sm"
                                     title="Actualiser les notifications"
                                 >
                                     <svg 
-                                        className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} 
+                                        className={`w-4 h-4 shrink-0 ${loading ? 'animate-spin' : ''}`} 
                                         fill="none" 
                                         stroke="currentColor" 
                                         viewBox="0 0 24 24"
@@ -264,7 +264,7 @@ export default function FormateurNotifications() {
                                 <select
                                     value={filter}
                                     onChange={(e) => setFilter(e.target.value)}
-                                    className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                                    className="min-w-0 max-w-full px-2.5 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
                                 >
                                     <option value="all">Toutes</option>
                                     <option value="unread">Non lues</option>
@@ -272,10 +272,13 @@ export default function FormateurNotifications() {
                                 </select>
                                 {unreadCount > 0 && (
                                     <button
+                                        type="button"
                                         onClick={markAllAsRead}
-                                        className="px-4 py-2 bg-[#2F80ED] hover:bg-[#4C9CFF] text-white rounded-lg transition-colors"
+                                        className="px-3 py-2 sm:px-4 bg-[#2F80ED] hover:bg-[#4C9CFF] text-white rounded-lg transition-colors text-xs sm:text-sm font-medium whitespace-normal text-center max-w-full"
+                                        title="Tout marquer comme lu"
                                     >
-                                        Tout marquer comme lu
+                                        <span className="sm:hidden">Tout lu</span>
+                                        <span className="hidden sm:inline">Tout marquer comme lu</span>
                                     </button>
                                 )}
                             </div>
@@ -306,11 +309,11 @@ export default function FormateurNotifications() {
                                             {getNotificationIcon(notification.type)}
                                         </span>
                                         <div className="flex-1 min-w-0">
-                                            <div className="flex items-center justify-between">
-                                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                            <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                                                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white min-w-0 break-words pr-0 sm:pr-2">
                                                     {notification.titre || notification.title}
                                                 </h3>
-                                                <div className="flex items-center space-x-2">
+                                                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 shrink-0">
                                                     <span className="text-sm text-gray-500 dark:text-gray-400">
                                                         {formatTimeAgo(notification.created_at)}
                                                     </span>
