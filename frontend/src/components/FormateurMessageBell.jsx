@@ -106,14 +106,14 @@ export default function ClocheMessageFormateur({ showDropdown, onToggle }) {
             {showDropdown && buttonRef && createPortal(
                 <div 
                     data-dropdown="message"
-                    className="fixed w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 z-[99999] overflow-hidden"
+                    className="fixed flex max-h-[min(24rem,calc(100dvh-5rem))] w-[min(20rem,calc(100vw-1rem))] flex-col bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 z-[99999] overflow-hidden"
                     style={{
                         top: buttonRef.getBoundingClientRect().bottom + 8,
                         right: window.innerWidth - buttonRef.getBoundingClientRect().right
                     }}
                 >
                     {/* En-tête Moderne */}
-                    <div className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] p-3">
+                    <div className="shrink-0 bg-gradient-to-r from-[#1a365d] to-[#2d3748] p-3">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
                                 <div className="w-8 h-8 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center">
@@ -135,7 +135,7 @@ export default function ClocheMessageFormateur({ showDropdown, onToggle }) {
                         </div>
                     </div>
 
-                    <div className="max-h-96 overflow-y-auto custom-scrollbar">
+                    <div className="min-h-0 flex-1 overflow-y-auto custom-scrollbar">
                         {loading ? (
                             <div className="p-6 text-center">
                                 <div className="inline-flex items-center gap-2">
@@ -209,7 +209,7 @@ export default function ClocheMessageFormateur({ showDropdown, onToggle }) {
                     </div>
 
                     {messages.length > 0 && (
-                        <div className="p-2.5 bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700">
+                        <div className="shrink-0 p-2.5 bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700">
                             <Link
                                 to="/formateur/messages"
                                 className="group flex items-center justify-center gap-1.5 text-xs font-semibold text-green-600 dark:text-green-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"

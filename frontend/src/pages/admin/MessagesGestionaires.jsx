@@ -246,9 +246,9 @@ export default function AdminMessagesGestionaires() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-4 relative z-20">
                 <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
 
-                    <div className="flex h-[600px]">
+                    <div className="flex min-h-0 h-[min(600px,calc(100dvh-12rem))] md:h-[600px]">
                         {/* Users List */}
-                        <div className="w-1/3 border-r border-gray-200 dark:border-gray-700 bg-gradient-to-b from-gray-50/80 to-gray-100/80 dark:from-gray-800/80 dark:to-gray-900/80">
+                        <div className="w-1/3 min-w-0 border-r border-gray-200 dark:border-gray-700 bg-gradient-to-b from-gray-50/80 to-gray-100/80 dark:from-gray-800/80 dark:to-gray-900/80 flex flex-col min-h-0">
                             <div className="p-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-[#1a365d] to-[#2d3748]">
                                 <h3 className="font-bold text-white text-lg">Conversations</h3>
                                 <p className="text-white/80 text-sm mt-1">Sélectionnez un gestionaire</p>
@@ -280,7 +280,7 @@ export default function AdminMessagesGestionaires() {
                                 </div>
                             </div>
                             
-                            <div className="overflow-y-auto">
+                            <div className="flex-1 min-h-0 overflow-y-auto">
                                 {users.filter(u => {
                                     // Filter out current user
                                     if (u.id === user.id) return false;
@@ -336,7 +336,7 @@ export default function AdminMessagesGestionaires() {
                         </div>
 
                         {/* Chat Area */}
-                        <div className="flex-1 flex flex-col">
+                        <div className="flex-1 flex flex-col min-h-0 min-w-0">
                             {selectedUser ? (
                                 <>
                                     {/* Chat Header */}
@@ -359,7 +359,7 @@ export default function AdminMessagesGestionaires() {
                                     </div>
 
                                     {/* Messages */}
-                                    <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                                    <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4">
                                         {getConversationWithUser(selectedUser.id).map((message) => (
                                             <div
                                                 key={message.id}
@@ -397,20 +397,20 @@ export default function AdminMessagesGestionaires() {
                                     </div>
 
                                     {/* Message Input */}
-                                    <form onSubmit={sendMessage} className="p-6 border-t border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-50/80 to-gray-100/80 dark:from-gray-800/80 dark:to-gray-900/80">
-                                        <div className="flex space-x-3">
+                                    <form onSubmit={sendMessage} className="flex-shrink-0 p-4 sm:p-6 border-t border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-50/80 to-gray-100/80 dark:from-gray-800/80 dark:to-gray-900/80">
+                                        <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch sm:gap-3">
                                             <input
                                                 type="text"
                                                 value={newMessage}
                                                 onChange={(e) => setNewMessage(e.target.value)}
                                                 placeholder="Tapez votre message..."
-                                                className="flex-1 px-6 py-3 border border-white/20 dark:border-[#3E3E3A]/50 rounded-xl bg-white/50 dark:bg-[#161615]/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#1a365d] focus:border-[#1a365d] transition-all shadow-lg"
+                                                className="min-w-0 flex-1 px-4 py-3 sm:px-6 border border-white/20 dark:border-[#3E3E3A]/50 rounded-xl bg-white/50 dark:bg-[#161615]/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#1a365d] focus:border-[#1a365d] transition-all shadow-lg"
                                                 disabled={sending}
                                             />
                                             <button
                                                 type="submit"
                                                 disabled={!newMessage.trim() || sending}
-                                                className="px-8 py-3 bg-gradient-to-r from-[#1a365d] to-[#2d3748] text-white rounded-xl hover:from-[#2d3748] hover:to-[#1a365d] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl font-semibold flex items-center justify-center space-x-2"
+                                                className="shrink-0 w-full sm:w-auto px-6 sm:px-8 py-3 bg-gradient-to-r from-[#1a365d] to-[#2d3748] text-white rounded-xl hover:from-[#2d3748] hover:to-[#1a365d] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl font-semibold flex items-center justify-center gap-2"
                                             >
                                                 {sending ? (
                                                     <>
