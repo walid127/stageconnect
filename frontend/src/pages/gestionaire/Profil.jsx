@@ -220,7 +220,7 @@ export default function GestionaireProfile() {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-4 relative z-20">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4 relative z-20">
                 {/* Modern Profile Header Card */}
                 <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden mb-6">
                     <div className="relative bg-gradient-to-r from-[#1a365d] via-[#2d3748] to-[#1e293b] p-8 md:p-12">

@@ -215,7 +215,7 @@ export default function Database() {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-4 relative z-20">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4 relative z-20">
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-2xl font-bold text-[#1b1b18] dark:text-[#EDEDEC]">
                         Sauvegardes disponibles
@@ -245,7 +245,7 @@ export default function Database() {
                 {loading ? (
                     <TableSquelette />
                 ) : (
-                    <div className="bg-white/95 dark:bg-gray-800/95 rounded-3xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+                    <div className="bg-white/95 dark:bg-gray-800/95 rounded-2xl shadow-lg sm:rounded-3xl sm:shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
                         {backups.length === 0 ? (
                             <div className="p-12 text-center">
                                 <div className="flex flex-col items-center gap-3">

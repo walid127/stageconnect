@@ -102,7 +102,7 @@ export default function FormateurDiplomas() {
             </div>
 
             {/* Content */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-8 relative z-20">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-6 sm:pt-8 relative z-20">
                 {loading ? (
                     <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 p-8">
                         <div className="flex items-center justify-center">
@@ -125,7 +125,7 @@ export default function FormateurDiplomas() {
                         {diplomas.map((diploma) => (
                             <div
                                 key={diploma.id}
-                                className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden hover:shadow-xl transition-all"
+                                className="bg-white/95 dark:bg-[#161615]/95 rounded-xl shadow-md sm:rounded-2xl sm:shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden hover:shadow-xl transition-all"
                             >
                                 {/* Header */}
                                 <div className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">

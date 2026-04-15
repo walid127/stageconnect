@@ -428,7 +428,7 @@ export default function GestionaireDiplomas() {
             </div>
 
             {/* Content */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-8">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-6 sm:pt-8">
 
                 {loading ? (
                     <div className="text-center py-12">
@@ -518,7 +518,7 @@ export default function GestionaireDiplomas() {
 
                             if (filtered.length === 0) {
                                 return (
-                                    <div className="bg-white/80 dark:bg-[#161615]/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
+                                    <div className="bg-white/95 dark:bg-[#161615]/95 rounded-xl shadow-md sm:rounded-2xl sm:shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
                                         <div className="text-center py-16">
                                             <div className="w-24 h-24 bg-gradient-to-br from-[#1a365d] to-[#2d3748] rounded-2xl flex items-center justify-center text-white text-4xl mb-6 mx-auto shadow-xl">
                                                 🎓
@@ -535,7 +535,7 @@ export default function GestionaireDiplomas() {
                             }
 
                             return (
-                                <div className="bg-white/95 dark:bg-[#161615]/95 rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
+                                <div className="bg-white/95 dark:bg-[#161615]/95 rounded-xl shadow-md sm:rounded-2xl sm:shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden">
                                     <div className="overflow-x-auto">
                                         <table className="w-full min-w-[980px]">
                                             <thead>

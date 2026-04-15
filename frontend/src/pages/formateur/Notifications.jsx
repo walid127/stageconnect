@@ -232,7 +232,7 @@ export default function FormateurNotifications() {
         <div className="min-h-screen bg-gray-50 dark:bg-[#161615]">
             <NavigationFormateur />
             
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8">
                 <div className="bg-white dark:bg-[#1b1b18] rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
                     <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
                         <div className="flex items-center justify-between">

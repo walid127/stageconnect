@@ -228,7 +228,7 @@ export default function Gestionaires() {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-4 relative z-20">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4 relative z-20">
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-2xl font-bold text-[#1b1b18] dark:text-[#EDEDEC]">
                         Liste des Gestionaires
@@ -247,7 +247,7 @@ export default function Gestionaires() {
                 {loading ? (
                     <TableSquelette />
                 ) : (
-                    <div className="bg-white/95 dark:bg-gray-800/95 rounded-3xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+                    <div className="bg-white/95 dark:bg-gray-800/95 rounded-2xl shadow-lg sm:rounded-3xl sm:shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
                         <div className="overflow-x-auto">
                         <table className="w-full min-w-[900px]">
                             <thead>

@@ -68,9 +68,9 @@ export default function FiltreAvance({ fields, onFilter, onReset, appliedFilters
     const filtersAreApplied = JSON.stringify(localFilters) === JSON.stringify(appliedFilters || {});
 
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden mb-6">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md sm:rounded-2xl sm:shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden mb-4 sm:mb-6">
             {/* En-tête */}
-            <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 border-b border-gray-200 dark:border-gray-600">
+            <div className="flex items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 border-b border-gray-200 dark:border-gray-600">
                 <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,7 +78,7 @@ export default function FiltreAvance({ fields, onFilter, onReset, appliedFilters
                         </svg>
                     </div>
                     <div>
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white">Filtres Avancés</h3>
+                        <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">Filtres Avancés</h3>
                         {activeFiltersCount > 0 && (
                             <p className="text-sm text-blue-600 dark:text-blue-400">
                                 {activeFiltersCount} filtre{activeFiltersCount > 1 ? 's' : ''} actif{activeFiltersCount > 1 ? 's' : ''}
@@ -104,8 +104,8 @@ export default function FiltreAvance({ fields, onFilter, onReset, appliedFilters
 
             {/* Champs de Filtre */}
             {isExpanded && (
-                <div className="p-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <div className="p-4 sm:p-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
                         {fields.map((field) => (
                             <div key={field.name}>
                                 <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">

@@ -146,7 +146,7 @@ export default function AdminDashboard() {
 
             {/* Show loading skeleton while fetching stats (below hero) */}
             {stats.loading && (
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-4">
+                <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                         <CarteSquelette />
                         <CarteSquelette />
@@ -157,7 +157,7 @@ export default function AdminDashboard() {
 
             {/* Content */}
             {!stats.loading && (
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-4 relative z-20">
+                <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4 relative z-20">
                 {/* Modern Metric Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     {/* Gestionaires Card */}

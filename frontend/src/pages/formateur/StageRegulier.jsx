@@ -280,7 +280,7 @@ export default function StageRegulier() {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-4 relative z-20">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4 relative z-20">
                 {/* Composant Filtre Avancé */}
                 <FiltreAvance
                     fields={[
@@ -368,9 +368,9 @@ export default function StageRegulier() {
                             </p>
                         </div>
                     ) : (
-                        <div className="bg-white/95 dark:bg-[#161615]/95 rounded-2xl shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-x-auto">
+                        <div className="bg-white/95 dark:bg-[#161615]/95 rounded-xl shadow-md sm:rounded-2xl sm:shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-x-auto">
                             {/* List Header */}
-                            <div className="min-w-[980px] sc-table-header-gradient px-6 py-4">
+                            <div className="min-w-[980px] sc-table-header-gradient px-3 py-3 sm:px-6 sm:py-4">
                                 <div className="grid min-w-[980px] grid-cols-12 gap-4 text-white font-semibold">
                                     <div className="col-span-1 text-center">#</div>
                                     <div className="col-span-3 text-center">Titre</div>
@@ -386,7 +386,7 @@ export default function StageRegulier() {
                                 {filteredTrainings.map((training, index) => (
                                     <div
                                         key={training.id}
-                                        className="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-200"
+                                        className="px-3 py-3 sm:px-6 sm:py-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-200"
                                     >
                                         <div className="grid min-w-[980px] grid-cols-12 gap-4 items-center">
                                             <div className="col-span-1 text-center">
