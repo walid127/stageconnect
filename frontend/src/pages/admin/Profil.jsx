@@ -256,7 +256,7 @@ export default function AdminProfile() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {/* Personal Info Card */}
                     <div className="lg:col-span-1">
                         <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl border border-gray-200/50 dark:border-gray-700/50 p-4 sm:p-6">

@@ -243,7 +243,7 @@ export default function FormateurDashboard() {
                     </div>
 
                     <div className="flex flex-wrap gap-1.5 sm:gap-4 justify-center">
-                        <Link to="/formateur/stages" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
+                        <Link to="/formateur/stages" className="w-full sm:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-900/10 to-transparent rounded-bl-full hidden sm:block"></div>
                             <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
                                 <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">📚</div>
@@ -260,7 +260,7 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/candidatures" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
+                        <Link to="/formateur/candidatures" className="w-full sm:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
                             <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
                                 <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">📝</div>
@@ -277,7 +277,7 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/messages" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#7c3aed] dark:hover:border-[#7c3aed] transition-all duration-300 hover:shadow-lg hover:shadow-purple-600/20">
+                        <Link to="/formateur/messages" className="w-full sm:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#7c3aed] dark:hover:border-[#7c3aed] transition-all duration-300 hover:shadow-lg hover:shadow-purple-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
                             <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
                                 <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">💬</div>
@@ -294,7 +294,7 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/profile" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
+                        <Link to="/formateur/profile" className="w-full sm:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
                             <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
                                 <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">👤</div>
@@ -311,7 +311,7 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/diplomes" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#16a34a] dark:hover:border-[#16a34a] transition-all duration-300 hover:shadow-lg hover:shadow-green-600/20">
+                        <Link to="/formateur/diplomes" className="w-full sm:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#16a34a] dark:hover:border-[#16a34a] transition-all duration-300 hover:shadow-lg hover:shadow-green-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
                             <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
                                 <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">🎓</div>
@@ -328,7 +328,7 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/history" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#64748b] dark:hover:border-[#64748b] transition-all duration-300 hover:shadow-lg hover:shadow-slate-600/20">
+                        <Link to="/formateur/history" className="w-full sm:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#64748b] dark:hover:border-[#64748b] transition-all duration-300 hover:shadow-lg hover:shadow-slate-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-slate-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
                             <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
                                 <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">📜</div>
@@ -345,7 +345,7 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/notifications" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#f59e0b] dark:hover:border-[#f59e0b] transition-all duration-300 hover:shadow-lg hover:shadow-amber-600/20">
+                        <Link to="/formateur/notifications" className="w-full sm:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#f59e0b] dark:hover:border-[#f59e0b] transition-all duration-300 hover:shadow-lg hover:shadow-amber-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-amber-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
                             <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
                                 <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">🔔</div>

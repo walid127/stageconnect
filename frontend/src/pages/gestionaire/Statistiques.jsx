@@ -326,7 +326,7 @@ export default function Statistiques() {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {/* Left: Donut Chart */}
                                 <div className="flex justify-center items-center">
                                     <DiagrammeAnneau
@@ -385,7 +385,7 @@ export default function Statistiques() {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {/* Left: Circular Progress */}
                                 <div className="flex flex-col items-center justify-center gap-4">
                                     <ProgressionCirculaire
