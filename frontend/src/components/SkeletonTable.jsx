@@ -1,6 +1,6 @@
 export default function TableSquelette({ rows = 5 }) {
     return (
-        <div className="bg-white/95 dark:bg-[#161615]/95 rounded-xl shadow-md sm:rounded-2xl sm:shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-hidden animate-pulse">
+        <div className="bg-white/95 dark:bg-[#161615]/95 rounded-xl shadow-md sm:rounded-2xl sm:shadow-lg border border-white/20 dark:border-[#3E3E3A]/50 overflow-x-auto animate-pulse">
             {/* Header */}
             <div className="sc-table-header-gradient px-3 py-3 sm:px-6 sm:py-4">
                 <div className="grid grid-cols-12 gap-4">
