@@ -48,6 +48,10 @@ export default function NavigationGestionaire() {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
+            // Bell buttons are outside dropdownRef; ignore so toggle can open/close without mousedown closing first
+            if (event.target.closest('[data-bell-toggle]')) {
+                return;
+            }
             const isClickInNav = dropdownRef.current && dropdownRef.current.contains(event.target);
             const isClickInFormateursDropdown = formateursDropdownRef.current && formateursDropdownRef.current.contains(event.target);
             const isClickInDropdown = event.target.closest('[data-dropdown="notification"]') || 

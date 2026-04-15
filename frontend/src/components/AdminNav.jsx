@@ -38,6 +38,9 @@ export default function NavigationAdmin() {
     // Fermer le menu déroulant lors d'un clic à l'extérieur
     useEffect(() => {
         const handleClickOutside = (event) => {
+            if (event.target.closest('[data-bell-toggle]')) {
+                return;
+            }
             // Vérifier si le clic est à l'extérieur de la zone de navigation et non dans un menu déroulant
             const isClickInNav = dropdownRef.current && dropdownRef.current.contains(event.target);
             const isClickInFormateursDropdown = formateursDropdownRef.current && formateursDropdownRef.current.contains(event.target);

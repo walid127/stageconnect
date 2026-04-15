@@ -102,8 +102,13 @@ export default function ClocheMessage({ showDropdown, onToggle }) {
     return (
         <div className="relative">
             <button
+                type="button"
+                data-bell-toggle="message"
                 ref={setButtonRef}
-                onClick={onToggle}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onToggle();
+                }}
                 className="relative p-2 text-white/80 hover:text-white transition-colors"
             >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

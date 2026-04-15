@@ -42,8 +42,9 @@ export default function ClocheNotification({ showDropdown, onToggle }) {
         try {
             const response = await axios.get('/api/notifications');
             const data = response.data;
-            setNotifications(data.data || []);
-            setUnreadCount(data.data?.filter(n => !n.lu_le).length || 0);
+            const items = Array.isArray(data.data) ? data.data : [];
+            setNotifications(items);
+            setUnreadCount(items.filter((n) => !n.lu_le).length);
         } catch (error) {
             console.error('Erreur lors du chargement des notifications:', error);
         } finally {
@@ -237,8 +238,13 @@ export default function ClocheNotification({ showDropdown, onToggle }) {
     return (
         <div className="relative">
             <button
+                type="button"
+                data-bell-toggle="notification"
                 ref={setButtonRef}
-                onClick={onToggle}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onToggle();
+                }}
                 className="relative p-2 text-white/80 hover:text-white transition-colors"
             >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

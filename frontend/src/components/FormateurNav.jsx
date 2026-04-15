@@ -38,6 +38,9 @@ export default function NavigationFormateur() {
     // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
+            if (event.target.closest('[data-bell-toggle]')) {
+                return;
+            }
             // Check if click is outside the navigation area and not in any dropdown
             const isClickInNav = dropdownRef.current && dropdownRef.current.contains(event.target);
             const isClickInDropdown = event.target.closest('[data-dropdown="notification"]') || 
