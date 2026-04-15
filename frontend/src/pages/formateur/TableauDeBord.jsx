@@ -234,124 +234,129 @@ export default function FormateurDashboard() {
                     </div>
                 </div>
 
-                {/* Quick Actions Section */}
+                {/* Quick Actions — même grille / cartes que tableau de bord gestionnaire */}
                 <div className="mb-5 sm:mb-12">
                     <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-6">
                         <div className="h-1 flex-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-full"></div>
-                        <h2 className="text-base sm:text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white whitespace-nowrap">
-                            Actions Rapides
-                        </h2>
+                        <h2 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white whitespace-nowrap">Actions Rapides</h2>
                         <div className="h-1 flex-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-full"></div>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 sm:gap-4 justify-center">
-                        <Link to="/formateur/stages" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
-                            <div className="flex flex-col items-center text-center">
-                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-[#1e40af] to-[#1e3a8a] rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-xl sm:text-3xl">📚</span>
+                    <div className="flex flex-wrap gap-1.5 sm:gap-4 justify-center">
+                        <Link to="/formateur/stages" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-900/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">📚</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Formations</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Parcourir et postuler</p>
                                 </div>
-                                <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Explorer les Formations</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">Découvrez de nouvelles formations</p>
-                                <div className="mt-2 sm:mt-4 flex items-center text-[#1e40af] dark:text-blue-400 text-sm font-medium">
+                                <div className="flex items-center text-[#1e40af] dark:text-blue-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Accéder</span>
-                                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
                         </Link>
 
-                        <Link to="/formateur/candidatures" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
-                            <div className="flex flex-col items-center text-center">
-                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-xl sm:text-3xl">📝</span>
+                        <Link to="/formateur/candidatures" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">📝</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Mes demandes</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Suivi des candidatures</p>
                                 </div>
-                                <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Mes demandes de formation</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">Suivez vos demandes de formation</p>
-                                <div className="mt-2 sm:mt-4 flex items-center text-[#0891b2] dark:text-cyan-400 text-sm font-medium">
+                                <div className="flex items-center text-[#0891b2] dark:text-cyan-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Accéder</span>
-                                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
                         </Link>
 
-                        <Link to="/formateur/messages" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-purple-600 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-lg hover:shadow-purple-600/20">
-                            <div className="flex flex-col items-center text-center">
-                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-600 to-purple-800 rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-xl sm:text-3xl">💬</span>
+                        <Link to="/formateur/messages" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#7c3aed] dark:hover:border-[#7c3aed] transition-all duration-300 hover:shadow-lg hover:shadow-purple-600/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">💬</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Messages</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Échanger avec la gestion</p>
                                 </div>
-                                <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Messages</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">Communiquez avec les admins</p>
-                                <div className="mt-2 sm:mt-4 flex items-center text-purple-600 dark:text-purple-400 text-sm font-medium">
+                                <div className="flex items-center text-[#7c3aed] dark:text-purple-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Accéder</span>
-                                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
                         </Link>
 
-                        <Link to="/formateur/profile" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
-                            <div className="flex flex-col items-center text-center">
-                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-xl sm:text-3xl">👤</span>
+                        <Link to="/formateur/profile" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">👤</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Mon profil</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Informations personnelles</p>
                                 </div>
-                                <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Mon Profil</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">Gérez vos informations</p>
-                                <div className="mt-2 sm:mt-4 flex items-center text-[#d4af37] dark:text-yellow-400 text-sm font-medium">
+                                <div className="flex items-center text-[#b8860b] dark:text-yellow-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Accéder</span>
-                                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
                         </Link>
 
-                        <Link to="/formateur/diplomes" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-emerald-600 dark:hover:border-emerald-600 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-600/20">
-                            <div className="flex flex-col items-center text-center">
-                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-xl sm:text-3xl">🎓</span>
+                        <Link to="/formateur/diplomes" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#16a34a] dark:hover:border-[#16a34a] transition-all duration-300 hover:shadow-lg hover:shadow-green-600/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">🎓</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Diplômes</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Consulter et télécharger</p>
                                 </div>
-                                <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Mes Diplômes</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">Voir et télécharger</p>
-                                <div className="mt-2 sm:mt-4 flex items-center text-emerald-600 dark:text-emerald-400 text-sm font-medium">
+                                <div className="flex items-center text-[#16a34a] dark:text-green-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Accéder</span>
-                                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
                         </Link>
 
-                        <Link to="/formateur/history" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-slate-600 dark:hover:border-slate-600 transition-all duration-300 hover:shadow-lg hover:shadow-slate-600/20">
-                            <div className="flex flex-col items-center text-center">
-                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-xl sm:text-3xl">📜</span>
+                        <Link to="/formateur/history" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#64748b] dark:hover:border-[#64748b] transition-all duration-300 hover:shadow-lg hover:shadow-slate-600/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-slate-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">📜</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Historique</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Activités et suivis</p>
                                 </div>
-                                <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Historique</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">Activités et suivis</p>
-                                <div className="mt-2 sm:mt-4 flex items-center text-slate-600 dark:text-slate-400 text-sm font-medium">
+                                <div className="flex items-center text-[#64748b] dark:text-slate-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Accéder</span>
-                                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
                         </Link>
 
-                        <Link to="/formateur/notifications" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-rose-600 dark:hover:border-rose-600 transition-all duration-300 hover:shadow-lg hover:shadow-rose-600/20">
-                            <div className="flex flex-col items-center text-center">
-                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-rose-600 to-rose-700 rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-xl sm:text-3xl">🔔</span>
+                        <Link to="/formateur/notifications" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#f59e0b] dark:hover:border-[#f59e0b] transition-all duration-300 hover:shadow-lg hover:shadow-amber-600/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-amber-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">🔔</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Notifications</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Alertes et mises à jour</p>
                                 </div>
-                                <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Notifications</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">Alertes et mises à jour</p>
-                                <div className="mt-2 sm:mt-4 flex items-center text-rose-600 dark:text-rose-400 text-sm font-medium">
+                                <div className="flex items-center text-[#f59e0b] dark:text-amber-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Accéder</span>
-                                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
