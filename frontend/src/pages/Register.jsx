@@ -150,7 +150,7 @@ export default function Register() {
                                 <img 
                                     src="/StageConnect-logo.png" 
                                     alt="StageConnect Logo" 
-                                    className="h-48 w-auto object-contain max-w-md animate-[float3d_4s_ease-in-out_infinite] hover:scale-110 transition-all duration-500 relative z-10"
+                                    className="h-48 w-auto object-contain animate-[float3d_4s_ease-in-out_infinite] hover:scale-110 transition-all duration-500 relative z-10"
                                     style={{
                                         transformStyle: 'preserve-3d'
                                     }}
@@ -239,7 +239,7 @@ export default function Register() {
                             <img 
                                 src="/StageConnect-logo.png" 
                                 alt="StageConnect Logo" 
-                                className="h-48 w-auto object-contain max-w-md animate-[float3d_4s_ease-in-out_infinite] hover:scale-110 transition-all duration-500 relative z-10"
+                                className="h-48 w-auto object-contain animate-[float3d_4s_ease-in-out_infinite] hover:scale-110 transition-all duration-500 relative z-10"
                                 style={{
                                     transformStyle: 'preserve-3d'
                                 }}
