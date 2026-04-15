@@ -133,7 +133,7 @@ export default function AdminDashboard() {
                         <h1 className="hero-title">
                             Tableau de Bord Administrateur
                         </h1>
-                        <p className="text-white/80 text-lg mt-2">Gestion des gestionaires, base de données et paquets</p>
+                        <p className="text-white/80 text-sm sm:text-lg mt-2">Gestion des gestionaires, base de données et paquets</p>
                     </div>
                 </div>
                 {/* Decorative Wave */}
@@ -147,7 +147,7 @@ export default function AdminDashboard() {
             {/* Show loading skeleton while fetching stats (below hero) */}
             {stats.loading && (
                 <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
                         <CarteSquelette />
                         <CarteSquelette />
                         <CarteSquelette />
@@ -159,22 +159,22 @@ export default function AdminDashboard() {
             {!stats.loading && (
                 <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4 relative z-20">
                 {/* Modern Metric Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
                     {/* Gestionaires Card */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] rounded-3xl shadow-2xl hover:shadow-blue-900/50 transition-all duration-500 hover:-translate-y-2">
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-blue-900/50 transition-all duration-500 hover:-translate-y-1 lg:hover:-translate-y-2">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
                         <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
-                        <div className="relative p-6">
+                        <div className="relative p-4 sm:p-5 md:p-6">
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-3xl">👥</span>
+                                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <span className="text-2xl sm:text-3xl">👥</span>
                                 </div>
                                 <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
                                     <span className="text-xs font-semibold text-white">Total</span>
                                 </div>
                             </div>
                             <h3 className="text-white/80 text-sm font-medium mb-1">Gestionaires</h3>
-                            <p className="text-4xl font-black text-white mb-2">
+                            <p className="text-3xl sm:text-4xl font-black text-white mb-2">
                                 {stats.loading ? '...' : <CompteurAnime value={stats.total_gestionaires || 0} />}
                             </p>
                             <div className="flex items-center text-white/70 text-xs">
@@ -187,20 +187,20 @@ export default function AdminDashboard() {
                         </div>
 
                     {/* Backups Card */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-3xl shadow-2xl hover:shadow-cyan-600/50 transition-all duration-500 hover:-translate-y-2">
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-cyan-600/50 transition-all duration-500 hover:-translate-y-1 lg:hover:-translate-y-2">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
                         <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
-                        <div className="relative p-6">
+                        <div className="relative p-4 sm:p-5 md:p-6">
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-3xl">💾</span>
+                                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <span className="text-2xl sm:text-3xl">💾</span>
                                 </div>
                                 <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
                                     <span className="text-xs font-semibold text-white">Sauvegardes</span>
                                 </div>
                             </div>
                             <h3 className="text-white/80 text-sm font-medium mb-1">Base de Données</h3>
-                            <p className="text-4xl font-black text-white mb-2">
+                            <p className="text-3xl sm:text-4xl font-black text-white mb-2">
                                 {stats.loading ? '...' : <CompteurAnime value={stats.total_backups || 0} />}
                             </p>
                             <div className="flex items-center text-white/70 text-xs">
@@ -214,20 +214,20 @@ export default function AdminDashboard() {
                         </div>
 
                     {/* Packages Card */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-3xl shadow-2xl hover:shadow-yellow-600/50 transition-all duration-500 hover:-translate-y-2">
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-yellow-600/50 transition-all duration-500 hover:-translate-y-1 lg:hover:-translate-y-2">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
                         <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
-                        <div className="relative p-6">
+                        <div className="relative p-4 sm:p-5 md:p-6">
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-3xl">📦</span>
+                                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <span className="text-2xl sm:text-3xl">📦</span>
                                 </div>
                                 <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
                                     <span className="text-xs font-semibold text-white">Installés</span>
                                 </div>
                             </div>
                             <h3 className="text-white/80 text-sm font-medium mb-1">Paquets</h3>
-                            <p className="text-4xl font-black text-white mb-2">
+                            <p className="text-3xl sm:text-4xl font-black text-white mb-2">
                                 {stats.loading ? '...' : <CompteurAnime value={stats.total_packages || 0} />}
                             </p>
                             <div className="flex items-center text-white/70 text-xs">
@@ -241,19 +241,19 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* Quick Actions - Modern Grid */}
-                <div className="mb-12">
-                    <div className="flex items-center gap-4 mb-6">
+                <div className="mb-8 sm:mb-12">
+                    <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-6">
                         <div className="h-1 flex-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-full"></div>
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white whitespace-nowrap">Actions Rapides</h2>
+                        <h2 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white whitespace-nowrap">Actions Rapides</h2>
                         <div className="h-1 flex-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-full"></div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                         {/* Gestionaires */}
-                        <Link to="/admin/gestionaires" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
+                        <Link to="/admin/gestionaires" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-900/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-4xl mb-3">👥</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-2">Gestionaires</h3>
+                                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">👥</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-1 sm:mb-2">Gestionaires</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Créer et gérer les comptes gestionaires</p>
                                 <div className="mt-auto flex items-center text-[#1e40af] dark:text-blue-400 text-sm font-medium">
                                     <span>Gérer</span>
@@ -265,11 +265,11 @@ export default function AdminDashboard() {
                         </Link>
 
                         {/* Messages Gestionaires */}
-                        <Link to="/admin/messages-gestionaires" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1a365d] dark:hover:border-[#1a365d] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
+                        <Link to="/admin/messages-gestionaires" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1a365d] dark:hover:border-[#1a365d] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-900/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-4xl mb-3">💬</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-2">Messages</h3>
+                                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">💬</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-1 sm:mb-2">Messages</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Messages des gestionaires</p>
                                 <div className="mt-auto flex items-center text-[#1a365d] dark:text-blue-400 text-sm font-medium">
                                     <span>Ouvrir</span>
@@ -281,11 +281,11 @@ export default function AdminDashboard() {
                         </Link>
 
                         {/* Base de données */}
-                        <Link to="/admin/database" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
+                        <Link to="/admin/database" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-600/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-4xl mb-3">💾</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-2">Base de Données</h3>
+                                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">💾</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-1 sm:mb-2">Base de Données</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Sauvegarder et restaurer la base de données</p>
                                 <div className="mt-auto flex items-center text-[#0891b2] dark:text-cyan-400 text-sm font-medium">
                                     <span>Gérer</span>
@@ -297,11 +297,11 @@ export default function AdminDashboard() {
                         </Link>
 
                         {/* Paquets */}
-                        <Link to="/admin/packages" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
+                        <Link to="/admin/packages" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-600/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-4xl mb-3">📦</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-xl mb-2">Paquets</h3>
+                                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">📦</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-1 sm:mb-2">Paquets</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Installer et gérer les paquets</p>
                                 <div className="mt-auto flex items-center text-[#b8860b] dark:text-yellow-400 text-sm font-medium">
                                     <span>Gérer</span>

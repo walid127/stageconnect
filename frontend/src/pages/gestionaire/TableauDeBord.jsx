@@ -159,7 +159,7 @@ export default function GestionaireDashboard() {
             {/* Show loading skeleton while fetching stats (below hero) */}
             {stats.loading && (
                 <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
                         <CarteSquelette />
                         <CarteSquelette />
                         <CarteSquelette />
@@ -172,22 +172,22 @@ export default function GestionaireDashboard() {
             {!stats.loading && (
                 <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4 relative z-20">
                 {/* Modern Metric Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
                     {/* Users Card */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] rounded-3xl shadow-2xl hover:shadow-blue-900/50 transition-all duration-500 hover:-translate-y-2">
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-blue-900/50 transition-all duration-500 hover:-translate-y-1 lg:hover:-translate-y-2">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
                         <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
-                        <div className="relative p-6">
+                        <div className="relative p-4 sm:p-5 md:p-6">
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-3xl">👥</span>
+                                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <span className="text-2xl sm:text-3xl">👥</span>
                                 </div>
                                 <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
                                     <span className="text-xs font-semibold text-white">Total</span>
                                 </div>
                             </div>
                             <h3 className="text-white/80 text-sm font-medium mb-1">Utilisateurs</h3>
-                            <p className="text-4xl font-black text-white mb-2">
+                            <p className="text-3xl sm:text-4xl font-black text-white mb-2">
                                 {stats.loading ? '...' : <CompteurAnime value={stats.total_formateurs || 0} />}
                             </p>
                             <div className="flex items-center text-white/70 text-xs">
@@ -200,20 +200,20 @@ export default function GestionaireDashboard() {
                         </div>
 
                     {/* Formations Card */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-3xl shadow-2xl hover:shadow-yellow-600/50 transition-all duration-500 hover:-translate-y-2">
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-yellow-600/50 transition-all duration-500 hover:-translate-y-1 lg:hover:-translate-y-2">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
                         <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
-                        <div className="relative p-6">
+                        <div className="relative p-4 sm:p-5 md:p-6">
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-3xl">📚</span>
+                                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <span className="text-2xl sm:text-3xl">📚</span>
                                 </div>
                                 <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
                                     <span className="text-xs font-semibold text-white">Actifs</span>
                                 </div>
                             </div>
                             <h3 className="text-white/80 text-sm font-medium mb-1">Formations</h3>
-                            <p className="text-4xl font-black text-white mb-2">
+                            <p className="text-3xl sm:text-4xl font-black text-white mb-2">
                                 {stats.loading ? '...' : <CompteurAnime value={stats.trainings.active} />}
                             </p>
                             <div className="flex items-center text-white/70 text-xs">
@@ -227,20 +227,20 @@ export default function GestionaireDashboard() {
                         </div>
 
                     {/* Applications Card */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-3xl shadow-2xl hover:shadow-cyan-600/50 transition-all duration-500 hover:-translate-y-2">
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-cyan-600/50 transition-all duration-500 hover:-translate-y-1 lg:hover:-translate-y-2">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
                         <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
-                        <div className="relative p-6">
+                        <div className="relative p-4 sm:p-5 md:p-6">
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-3xl">📝</span>
+                                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <span className="text-2xl sm:text-3xl">📝</span>
                                 </div>
                                 <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
                                     <span className="text-xs font-semibold text-white">Total</span>
                                 </div>
                             </div>
                             <h3 className="text-white/80 text-sm font-medium mb-1">Demandes de formation</h3>
-                            <p className="text-4xl font-black text-white mb-2">
+                            <p className="text-3xl sm:text-4xl font-black text-white mb-2">
                                 {stats.loading ? '...' : <CompteurAnime value={stats.applications.total || 0} />}
                             </p>
                             <div className="flex items-center text-white/70 text-xs">
@@ -253,20 +253,20 @@ export default function GestionaireDashboard() {
                         </div>
 
                     {/* Pending Card */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#ea580c] to-[#c2410c] rounded-3xl shadow-2xl hover:shadow-orange-600/50 transition-all duration-500 hover:-translate-y-2">
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#ea580c] to-[#c2410c] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-orange-600/50 transition-all duration-500 hover:-translate-y-1 lg:hover:-translate-y-2">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
                         <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
-                        <div className="relative p-6">
+                        <div className="relative p-4 sm:p-5 md:p-6">
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-3xl">⏳</span>
+                                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <span className="text-2xl sm:text-3xl">⏳</span>
                                 </div>
                                 <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 animate-pulse">
                                     <span className="text-xs font-semibold text-white">Urgent</span>
                                 </div>
                             </div>
                             <h3 className="text-white/80 text-sm font-medium mb-1">À Valider</h3>
-                            <p className="text-4xl font-black text-white mb-2">
+                            <p className="text-3xl sm:text-4xl font-black text-white mb-2">
                                 {stats.loading ? '...' : <CompteurAnime value={stats.pending_users || 0} />}
                             </p>
                             <div className="flex items-center text-white/70 text-xs">
@@ -280,18 +280,18 @@ export default function GestionaireDashboard() {
                 </div>
 
                 {/* Quick Actions - Modern Grid */}
-                <div className="mb-12">
-                    <div className="flex items-center gap-4 mb-6">
+                <div className="mb-8 sm:mb-12">
+                    <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-6">
                         <div className="h-1 flex-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-full"></div>
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white whitespace-nowrap">Actions Rapides</h2>
+                        <h2 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white whitespace-nowrap">Actions Rapides</h2>
                         <div className="h-1 flex-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-full"></div>
                     </div>
-                    <div className="flex flex-wrap gap-4 justify-center">
-                        <Link to="/gestionaire/utilisateurs" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
+                    <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
+                        <Link to="/gestionaire/utilisateurs" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-900/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-3xl mb-3">👥</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1">Utilisateurs</h3>
+                                <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">👥</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-1">Utilisateurs</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">Gérer les comptes</p>
                                 <div className="mt-3 flex items-center text-[#1e40af] dark:text-blue-400 text-sm font-medium">
                                     <span>Accéder</span>
@@ -302,11 +302,11 @@ export default function GestionaireDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/gestionaire/stages" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
+                        <Link to="/gestionaire/stages" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-600/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-3xl mb-3">📚</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1">Formations</h3>
+                                <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">📚</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-1">Formations</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">Créer et modifier</p>
                                 <div className="mt-3 flex items-center text-[#b8860b] dark:text-yellow-400 text-sm font-medium">
                                     <span>Accéder</span>
@@ -317,11 +317,11 @@ export default function GestionaireDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/gestionaire/candidatures" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
+                        <Link to="/gestionaire/candidatures" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-600/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-3xl mb-3">📝</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1">Demandes de formation</h3>
+                                <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">📝</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-1">Demandes de formation</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">Valider les demandes</p>
                                 <div className="mt-3 flex items-center text-[#0891b2] dark:text-cyan-400 text-sm font-medium">
                                     <span>Accéder</span>
@@ -332,11 +332,11 @@ export default function GestionaireDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/gestionaire/specialistes" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#ea580c] dark:hover:border-[#ea580c] transition-all duration-300 hover:shadow-lg hover:shadow-orange-600/20">
+                        <Link to="/gestionaire/specialistes" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#ea580c] dark:hover:border-[#ea580c] transition-all duration-300 hover:shadow-lg hover:shadow-orange-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-600/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-3xl mb-3">🎯</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1">Spécialités</h3>
+                                <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">🎯</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-1">Spécialités</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">Gérer les domaines</p>
                                 <div className="mt-3 flex items-center text-[#ea580c] dark:text-orange-400 text-sm font-medium">
                                     <span>Accéder</span>
@@ -347,11 +347,11 @@ export default function GestionaireDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/gestionaire/messages" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#7c3aed] dark:hover:border-[#7c3aed] transition-all duration-300 hover:shadow-lg hover:shadow-purple-600/20">
+                        <Link to="/gestionaire/messages" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#7c3aed] dark:hover:border-[#7c3aed] transition-all duration-300 hover:shadow-lg hover:shadow-purple-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-600/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-3xl mb-3">💬</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1">Messages</h3>
+                                <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">💬</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-1">Messages</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">Communiquer avec les formateurs</p>
                                 {stats.messages.unread > 0 && (
                                     <div className="mt-2">
@@ -370,11 +370,11 @@ export default function GestionaireDashboard() {
                         </Link>
 
                         {/* Diplomas */}
-                        <Link to="/gestionaire/diplomes" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
+                        <Link to="/gestionaire/diplomes" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-600/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-3xl mb-3">🎓</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1">Diplômes</h3>
+                                <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">🎓</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-1">Diplômes</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">Délivrer et gérer</p>
                                 <div className="mt-3 flex items-center text-[#b8860b] dark:text-yellow-400 text-sm font-medium">
                                     <span>Accéder</span>
@@ -386,11 +386,11 @@ export default function GestionaireDashboard() {
                         </Link>
 
                         {/* Formateurs List */}
-                        <Link to="/gestionaire/formateurs" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#16a34a] dark:hover:border-[#16a34a] transition-all duration-300 hover:shadow-lg hover:shadow-green-600/20">
+                        <Link to="/gestionaire/formateurs" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#16a34a] dark:hover:border-[#16a34a] transition-all duration-300 hover:shadow-lg hover:shadow-green-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-600/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-3xl mb-3">📋</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1">Formateurs</h3>
+                                <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">📋</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-1">Formateurs</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">Liste des formateurs</p>
                                 <div className="mt-3 flex items-center text-[#16a34a] dark:text-green-400 text-sm font-medium">
                                     <span>Accéder</span>
@@ -402,11 +402,11 @@ export default function GestionaireDashboard() {
                         </Link>
 
                         {/* Comptes Formateurs */}
-                        <Link to="/gestionaire/utilisateurs" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0ea5e9] dark:hover:border-[#0ea5e9] transition-all duration-300 hover:shadow-lg hover:shadow-sky-600/20">
+                        <Link to="/gestionaire/utilisateurs" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0ea5e9] dark:hover:border-[#0ea5e9] transition-all duration-300 hover:shadow-lg hover:shadow-sky-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-sky-600/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-3xl mb-3">👤</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1">Comptes Formateurs</h3>
+                                <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">👤</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-1">Comptes Formateurs</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">Créer et gérer les comptes</p>
                                 <div className="mt-3 flex items-center text-[#0ea5e9] dark:text-sky-400 text-sm font-medium">
                                     <span>Accéder</span>
@@ -418,11 +418,11 @@ export default function GestionaireDashboard() {
                         </Link>
 
                         {/* Notifications */}
-                        <Link to="/gestionaire/notifications" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#f59e0b] dark:hover:border-[#f59e0b] transition-all duration-300 hover:shadow-lg hover:shadow-amber-600/20">
+                        <Link to="/gestionaire/notifications" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#f59e0b] dark:hover:border-[#f59e0b] transition-all duration-300 hover:shadow-lg hover:shadow-amber-600/20">
                             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-amber-600/10 to-transparent rounded-bl-full"></div>
                             <div className="relative flex flex-col">
-                                <div className="text-3xl mb-3">🔔</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1">Notifications</h3>
+                                <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">🔔</div>
+                                <h3 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-1">Notifications</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">Voir toutes les notifications</p>
                                 <div className="mt-3 flex items-center text-[#f59e0b] dark:text-amber-400 text-sm font-medium">
                                     <span>Accéder</span>
@@ -437,20 +437,20 @@ export default function GestionaireDashboard() {
 
                 {/* Statistics CTA - Ultra Modern */}
                 <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-2xl sm:rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
                     <Link 
                         to="/gestionaire/statistics" 
-                        className="relative block bg-gradient-to-r from-[#1a365d] via-[#2d3748] to-[#0891b2] rounded-3xl p-8 overflow-hidden"
+                        className="relative block bg-gradient-to-r from-[#1a365d] via-[#2d3748] to-[#0891b2] rounded-2xl p-5 sm:rounded-3xl sm:p-8 overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMjAgMjBjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
-                        <div className="relative flex items-center justify-between">
-                            <div className="flex items-center gap-6">
-                                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                                    <span className="text-5xl">📊</span>
+                        <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                                <div className="w-14 h-14 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shrink-0">
+                                    <span className="text-4xl sm:text-5xl">📊</span>
                                 </div>
                                 <div>
-                                    <h3 className="text-3xl font-black text-white mb-2 tracking-tight">Statistiques Avancées</h3>
-                                    <p className="text-white/90 text-lg">Visualisations interactives et insights détaillés</p>
+                                    <h3 className="text-xl sm:text-3xl font-black text-white mb-1 sm:mb-2 tracking-tight">Statistiques Avancées</h3>
+                                    <p className="text-white/90 text-sm sm:text-lg">Visualisations interactives et insights détaillés</p>
                                 </div>
                             </div>
                             <div className="hidden md:flex items-center gap-2 text-white">
