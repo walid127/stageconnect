@@ -12,6 +12,8 @@ class GradeSeeder extends Seeder
      */
     public function run(): void
     {
+        $now = now();
+
         $grades = [
             [
                 'code' => 'prof_form_pro',
@@ -30,11 +32,17 @@ class GradeSeeder extends Seeder
             ],
         ];
 
-        foreach ($grades as $grade) {
-            DB::table('grades')->insert(array_merge($grade, [
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]));
-        }
+        $rows = array_map(function (array $grade) use ($now) {
+            return array_merge($grade, [
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+        }, $grades);
+
+        DB::table('grades')->upsert(
+            $rows,
+            ['code'],
+            ['nom', 'description', 'updated_at']
+        );
     }
 }
