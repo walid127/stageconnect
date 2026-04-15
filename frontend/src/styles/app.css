@@ -104,49 +104,18 @@ body {
     background: var(--gradient-dark);
 }
 
-/* Gestionnaire dashboard — less vertical space on small screens (cards stay above the fold) */
-.gestionaire-dashboard-tight .hero-content {
-    padding: 0.625rem 0.75rem 0.75rem;
-}
-@media (min-width: 640px) {
-    .gestionaire-dashboard-tight .hero-content {
-        padding: 2.5rem 1rem 3.5rem;
-    }
-}
-@media (min-width: 1024px) {
-    .gestionaire-dashboard-tight .hero-content {
-        padding: 3rem 1rem 4rem;
-    }
-}
-.gestionaire-dashboard-tight .gestionaire-dashboard-hero-title {
-    font-size: 1.125rem;
-    margin-bottom: 0;
-    line-height: 1.2;
-}
-@media (min-width: 640px) {
-    .gestionaire-dashboard-tight .gestionaire-dashboard-hero-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-}
-@media (min-width: 768px) {
-    .gestionaire-dashboard-tight .gestionaire-dashboard-hero-title {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
-}
-
 .hero-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.1);
 }
 
+/* Compact on phone/tablet: less “accueil” band before main content */
 .hero-content {
     position: relative;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 2rem 0.75rem 2.5rem;
+    padding: 0.625rem 0.75rem 0.75rem;
     z-index: 10;
 }
 
@@ -163,16 +132,18 @@ body {
 }
 
 .hero-title {
-    font-size: 1.625rem;
+    font-size: 1.125rem;
     font-weight: 800;
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 0.375rem;
+    line-height: 1.2;
     letter-spacing: -0.025em;
 }
 
 @media (min-width: 640px) {
     .hero-title {
         font-size: 2rem;
+        margin-bottom: 1rem;
     }
 }
 

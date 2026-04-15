@@ -126,17 +126,17 @@ export default function FormateurDashboard() {
 
                 {/* Decorative Wave */}
                 <div className="hero-wave">
-                    <svg className="w-full h-8" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <svg className="w-full h-4 sm:h-8" viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
                     </svg>
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4 relative z-20">
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-6 sm:pb-16 pt-2 sm:pt-4 relative z-20">
 
                 {/* Accueil Intro */}
-                <div className="mb-6 sm:mb-10">
-                    <div className="relative overflow-hidden bg-gradient-to-br from-[#1a365d] via-[#2d3748] to-[#1a365d] dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl border border-[#1a365d]/20 dark:border-[#334155]/30">
+                <div className="mb-4 sm:mb-10">
+                    <div className="relative overflow-hidden bg-gradient-to-br from-[#1a365d] via-[#2d3748] to-[#1a365d] dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] rounded-xl sm:rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl border border-[#1a365d]/20 dark:border-[#334155]/30">
                         {/* Decorative Pattern */}
                         <div className="absolute inset-0 opacity-10">
                             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNkNGFmMzciIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEwYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')]"></div>
@@ -145,12 +145,12 @@ export default function FormateurDashboard() {
                         {/* Shine Effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                         
-                        <div className="relative p-4 sm:p-6 md:p-8 lg:p-10">
-                            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+                        <div className="relative p-3 sm:p-6 md:p-8 lg:p-10">
+                            <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-6">
                                 {/* Icon */}
                                 <div className="flex-shrink-0">
-                                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg sm:shadow-xl shadow-[#d4af37]/20">
-                                        <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-lg sm:rounded-2xl flex items-center justify-center shadow-lg sm:shadow-xl shadow-[#d4af37]/20">
+                                        <svg className="w-5 h-5 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                         </svg>
                                     </div>
@@ -158,13 +158,13 @@ export default function FormateurDashboard() {
                                 
                                 {/* Content */}
                                 <div className="flex-1">
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <h2 className="text-xl sm:text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-white via-[#EDEDEC] to-[#d4af37] bg-clip-text text-transparent">
+                                    <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                                        <h2 className="text-lg sm:text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-white via-[#EDEDEC] to-[#d4af37] bg-clip-text text-transparent leading-tight">
                                             Bienvenue{user?.nom ? `, ${user.nom}` : ''}
                                         </h2>
                                         <div className="hidden md:block w-12 h-0.5 bg-gradient-to-r from-[#d4af37] to-transparent"></div>
                                     </div>
-                                    <p className="text-base md:text-lg text-white/90 dark:text-[#EDEDEC]/90 leading-relaxed max-w-2xl">
+                                    <p className="text-sm sm:text-base md:text-lg text-white/90 dark:text-[#EDEDEC]/90 leading-relaxed max-w-2xl">
                                         Consultez vos formations, votre progression pédagogique et votre promotion.
                                     </p>
                                 </div>
@@ -177,34 +177,34 @@ export default function FormateurDashboard() {
                 </div>
 
                 {/* Types de Formations */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-6 mb-5 sm:mb-12">
                     {/* Réguliers */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-white to-blue-50/50 dark:from-[#161615] dark:to-blue-950/20 rounded-2xl shadow-lg sm:rounded-3xl sm:shadow-xl border border-blue-200/50 dark:border-blue-800/30 hover:shadow-xl sm:hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-0.5 sm:hover:-translate-y-1 transition-all duration-300">
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-white to-blue-50/50 dark:from-[#161615] dark:to-blue-950/20 rounded-xl sm:rounded-3xl shadow-lg sm:shadow-xl border border-blue-200/50 dark:border-blue-800/30 hover:shadow-xl sm:hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-0.5 sm:hover:-translate-y-1 transition-all duration-300">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div className="relative p-4 sm:p-6">
-                            <div className="flex items-center justify-between mb-3 sm:mb-4">
-                                <div className="relative w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-xl sm:text-2xl filter drop-shadow-lg">📚</span>
+                        <div className="relative p-3 sm:p-6">
+                            <div className="flex items-center justify-between mb-2 sm:mb-4">
+                                <div className="relative w-9 h-9 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 rounded-lg sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                    <span className="text-lg sm:text-2xl filter drop-shadow-lg">📚</span>
                                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
                                 </div>
-                                <div className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-br from-[#1a365d] to-blue-600 dark:from-blue-400 dark:to-blue-300 bg-clip-text text-transparent">
+                                <div className="text-xl sm:text-3xl md:text-4xl font-black bg-gradient-to-br from-[#1a365d] to-blue-600 dark:from-blue-400 dark:to-blue-300 bg-clip-text text-transparent tabular-nums">
                                     {loading || userLoading ? '…' : stats.availableTrainings}
                                 </div>
                             </div>
-                            <h3 className="text-base sm:text-lg font-bold text-[#1b1b18] dark:text-[#EDEDEC] group-hover:text-[#1a365d] dark:group-hover:text-blue-400 transition-colors duration-300">Formations disponibles</h3>
+                            <h3 className="text-sm sm:text-lg font-bold text-[#1b1b18] dark:text-[#EDEDEC] group-hover:text-[#1a365d] dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight">Formations disponibles</h3>
                         </div>
                     </div>
 
                     {/* Pédagogique */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-white to-indigo-50/50 dark:from-[#161615] dark:to-indigo-950/20 rounded-2xl shadow-lg sm:rounded-3xl sm:shadow-xl border border-indigo-200/50 dark:border-indigo-800/30 hover:shadow-xl sm:hover:shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-0.5 sm:hover:-translate-y-1 transition-all duration-300">
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-white to-indigo-50/50 dark:from-[#161615] dark:to-indigo-950/20 rounded-xl sm:rounded-3xl shadow-lg sm:shadow-xl border border-indigo-200/50 dark:border-indigo-800/30 hover:shadow-xl sm:hover:shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-0.5 sm:hover:-translate-y-1 transition-all duration-300">
                         <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div className="relative p-4 sm:p-6">
-                            <div className="flex items-center justify-between mb-3 sm:mb-4">
-                                <div className="relative w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-xl sm:text-2xl filter drop-shadow-lg">🎓</span>
+                        <div className="relative p-3 sm:p-6">
+                            <div className="flex items-center justify-between mb-2 sm:mb-4">
+                                <div className="relative w-9 h-9 sm:w-14 sm:h-14 bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 rounded-lg sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                    <span className="text-lg sm:text-2xl filter drop-shadow-lg">🎓</span>
                                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
                                 </div>
-                                <span className={`px-3 py-1.5 text-xs rounded-full font-semibold shadow-md ${
+                                <span className={`px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs rounded-full font-semibold shadow-md max-w-[min(100%,7rem)] text-center leading-tight ${
                                     stats.pedagogicalStatus === 'termine' ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white dark:from-green-600 dark:to-emerald-700' :
                                     stats.pedagogicalStatus === 'en_cours' ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white dark:from-blue-600 dark:to-cyan-700' :
                                     stats.pedagogicalStatus === 'en_attente' ? 'bg-gradient-to-r from-yellow-500 to-amber-600 text-white dark:from-yellow-600 dark:to-amber-700' :
@@ -215,44 +215,44 @@ export default function FormateurDashboard() {
                                      stats.pedagogicalStatus === 'en_attente' ? 'En attente' : 'Aucun'}
                                 </span>
                             </div>
-                            <h3 className="text-base sm:text-lg font-bold text-[#1b1b18] dark:text-[#EDEDEC] group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">Formation pédagogique</h3>
+                            <h3 className="text-sm sm:text-lg font-bold text-[#1b1b18] dark:text-[#EDEDEC] group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 leading-tight">Formation pédagogique</h3>
                         </div>
                     </div>
 
                     {/* Promotion */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-white to-amber-50/50 dark:from-[#161615] dark:to-amber-950/20 rounded-2xl shadow-lg sm:rounded-3xl sm:shadow-xl border border-amber-200/50 dark:border-amber-800/30 hover:shadow-xl sm:hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-0.5 sm:hover:-translate-y-1 transition-all duration-300">
+                    <div className="group relative overflow-hidden col-span-2 md:col-span-1 bg-gradient-to-br from-white to-amber-50/50 dark:from-[#161615] dark:to-amber-950/20 rounded-xl sm:rounded-3xl shadow-lg sm:shadow-xl border border-amber-200/50 dark:border-amber-800/30 hover:shadow-xl sm:hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-0.5 sm:hover:-translate-y-1 transition-all duration-300">
                         <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div className="relative p-4 sm:p-6">
-                            <div className="flex items-center justify-between mb-3 sm:mb-4">
-                                <div className="relative w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-br from-amber-500 to-yellow-600 dark:from-amber-600 dark:to-yellow-700 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-xl sm:text-2xl filter drop-shadow-lg">⭐</span>
+                        <div className="relative p-3 sm:p-6">
+                            <div className="flex items-center justify-between mb-2 sm:mb-4">
+                                <div className="relative w-9 h-9 sm:w-14 sm:h-14 bg-gradient-to-br from-amber-500 to-yellow-600 dark:from-amber-600 dark:to-yellow-700 rounded-lg sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                    <span className="text-lg sm:text-2xl filter drop-shadow-lg">⭐</span>
                                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
                                 </div>
                             </div>
-                            <h3 className="text-base sm:text-lg font-bold text-[#1b1b18] dark:text-[#EDEDEC] group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300">Formation de promotion</h3>
+                            <h3 className="text-sm sm:text-lg font-bold text-[#1b1b18] dark:text-[#EDEDEC] group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300 leading-tight">Formation de promotion</h3>
                         </div>
                     </div>
                 </div>
 
                 {/* Quick Actions Section */}
-                <div className="mb-8 sm:mb-12">
-                    <div className="flex items-center gap-2 sm:gap-4 mb-5 sm:mb-8">
+                <div className="mb-5 sm:mb-12">
+                    <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-6">
                         <div className="h-1 flex-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-full"></div>
-                        <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white whitespace-nowrap">
+                        <h2 className="text-base sm:text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white whitespace-nowrap">
                             Actions Rapides
                         </h2>
                         <div className="h-1 flex-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-full"></div>
                     </div>
 
-                    <div className="flex flex-wrap gap-4 sm:gap-6 justify-center">
-                        <Link to="/formateur/stages" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
+                    <div className="flex flex-wrap gap-2 sm:gap-4 justify-center">
+                        <Link to="/formateur/stages" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
                             <div className="flex flex-col items-center text-center">
-                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#1e40af] to-[#1e3a8a] rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-2xl sm:text-3xl">📚</span>
+                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-[#1e40af] to-[#1e3a8a] rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
+                                    <span className="text-xl sm:text-3xl">📚</span>
                                 </div>
                                 <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Explorer les Formations</h3>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Découvrez de nouvelles formations</p>
-                                <div className="mt-4 flex items-center text-[#1e40af] dark:text-blue-400 text-sm font-medium">
+                                <div className="mt-2 sm:mt-4 flex items-center text-[#1e40af] dark:text-blue-400 text-sm font-medium">
                                     <span>Accéder</span>
                                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -261,14 +261,14 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/candidatures" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
+                        <Link to="/formateur/candidatures" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
                             <div className="flex flex-col items-center text-center">
-                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-2xl sm:text-3xl">📝</span>
+                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
+                                    <span className="text-xl sm:text-3xl">📝</span>
                                 </div>
                                 <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Mes demandes de formation</h3>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Suivez vos demandes de formation</p>
-                                <div className="mt-4 flex items-center text-[#0891b2] dark:text-cyan-400 text-sm font-medium">
+                                <div className="mt-2 sm:mt-4 flex items-center text-[#0891b2] dark:text-cyan-400 text-sm font-medium">
                                     <span>Accéder</span>
                                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -277,14 +277,14 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/messages" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-purple-600 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-lg hover:shadow-purple-600/20">
+                        <Link to="/formateur/messages" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-purple-600 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-lg hover:shadow-purple-600/20">
                             <div className="flex flex-col items-center text-center">
-                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-2xl sm:text-3xl">💬</span>
+                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-600 to-purple-800 rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
+                                    <span className="text-xl sm:text-3xl">💬</span>
                                 </div>
                                 <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Messages</h3>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Communiquez avec les admins</p>
-                                <div className="mt-4 flex items-center text-purple-600 dark:text-purple-400 text-sm font-medium">
+                                <div className="mt-2 sm:mt-4 flex items-center text-purple-600 dark:text-purple-400 text-sm font-medium">
                                     <span>Accéder</span>
                                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -293,14 +293,14 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/profile" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
+                        <Link to="/formateur/profile" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
                             <div className="flex flex-col items-center text-center">
-                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-2xl sm:text-3xl">👤</span>
+                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
+                                    <span className="text-xl sm:text-3xl">👤</span>
                                 </div>
                                 <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Mon Profil</h3>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Gérez vos informations</p>
-                                <div className="mt-4 flex items-center text-[#d4af37] dark:text-yellow-400 text-sm font-medium">
+                                <div className="mt-2 sm:mt-4 flex items-center text-[#d4af37] dark:text-yellow-400 text-sm font-medium">
                                     <span>Accéder</span>
                                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -309,14 +309,14 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/diplomes" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-emerald-600 dark:hover:border-emerald-600 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-600/20">
+                        <Link to="/formateur/diplomes" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-emerald-600 dark:hover:border-emerald-600 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-600/20">
                             <div className="flex flex-col items-center text-center">
-                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-2xl sm:text-3xl">🎓</span>
+                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
+                                    <span className="text-xl sm:text-3xl">🎓</span>
                                 </div>
                                 <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Mes Diplômes</h3>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Voir et télécharger</p>
-                                <div className="mt-4 flex items-center text-emerald-600 dark:text-emerald-400 text-sm font-medium">
+                                <div className="mt-2 sm:mt-4 flex items-center text-emerald-600 dark:text-emerald-400 text-sm font-medium">
                                     <span>Accéder</span>
                                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -325,14 +325,14 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/history" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-slate-600 dark:hover:border-slate-600 transition-all duration-300 hover:shadow-lg hover:shadow-slate-600/20">
+                        <Link to="/formateur/history" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-slate-600 dark:hover:border-slate-600 transition-all duration-300 hover:shadow-lg hover:shadow-slate-600/20">
                             <div className="flex flex-col items-center text-center">
-                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-2xl sm:text-3xl">📜</span>
+                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
+                                    <span className="text-xl sm:text-3xl">📜</span>
                                 </div>
                                 <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Historique</h3>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Activités et suivis</p>
-                                <div className="mt-4 flex items-center text-slate-600 dark:text-slate-400 text-sm font-medium">
+                                <div className="mt-2 sm:mt-4 flex items-center text-slate-600 dark:text-slate-400 text-sm font-medium">
                                     <span>Accéder</span>
                                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -341,14 +341,14 @@ export default function FormateurDashboard() {
                             </div>
                         </Link>
 
-                        <Link to="/formateur/notifications" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-rose-600 dark:hover:border-rose-600 transition-all duration-300 hover:shadow-lg hover:shadow-rose-600/20">
+                        <Link to="/formateur/notifications" className="w-full md:w-1/2 lg:w-1/4 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-3 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-rose-600 dark:hover:border-rose-600 transition-all duration-300 hover:shadow-lg hover:shadow-rose-600/20">
                             <div className="flex flex-col items-center text-center">
-                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-rose-600 to-rose-700 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
-                                    <span className="text-2xl sm:text-3xl">🔔</span>
+                                <div className="w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-rose-600 to-rose-700 rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg sm:shadow-xl">
+                                    <span className="text-xl sm:text-3xl">🔔</span>
                                 </div>
                                 <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">Notifications</h3>
                                 <p className="text-gray-600 dark:text-gray-400 text-sm">Alertes et mises à jour</p>
-                                <div className="mt-4 flex items-center text-rose-600 dark:text-rose-400 text-sm font-medium">
+                                <div className="mt-2 sm:mt-4 flex items-center text-rose-600 dark:text-rose-400 text-sm font-medium">
                                     <span>Accéder</span>
                                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

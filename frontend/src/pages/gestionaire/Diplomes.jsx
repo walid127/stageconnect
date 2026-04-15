@@ -421,14 +421,14 @@ export default function GestionaireDiplomas() {
                 </div>
                 {/* Decorative Wave */}
                 <div className="hero-wave">
-                    <svg className="w-full h-8" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <svg className="w-full h-4 sm:h-8" viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
                     </svg>
                 </div>
             </div>
 
             {/* Content */}
-            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-6 sm:pt-8">
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-6 sm:pb-16 pt-4 sm:pt-8">
 
                 {loading ? (
                     <div className="text-center py-12">

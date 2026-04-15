@@ -133,12 +133,12 @@ export default function AdminDashboard() {
                         <h1 className="hero-title">
                             Tableau de Bord Administrateur
                         </h1>
-                        <p className="text-white/80 text-sm sm:text-lg mt-2">Gestion des gestionaires, base de données et paquets</p>
+                        <p className="text-white/80 text-xs sm:text-sm md:text-lg mt-1 sm:mt-2 max-w-md mx-auto">Gestion des gestionaires, base de données et paquets</p>
                     </div>
                 </div>
                 {/* Decorative Wave */}
                 <div className="hero-wave">
-                    <svg className="w-full h-8" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <svg className="w-full h-4 sm:h-8" viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
                     </svg>
                 </div>
@@ -146,8 +146,8 @@ export default function AdminDashboard() {
 
             {/* Show loading skeleton while fetching stats (below hero) */}
             {stats.loading && (
-                <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+                <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-6 sm:pb-16 pt-2 sm:pt-4">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-1.5 sm:gap-4 md:gap-6 mb-4 sm:mb-12">
                         <CarteSquelette />
                         <CarteSquelette />
                         <CarteSquelette />
@@ -157,155 +157,159 @@ export default function AdminDashboard() {
 
             {/* Content */}
             {!stats.loading && (
-                <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-10 sm:pb-16 pt-3 sm:pt-4 relative z-20">
+                <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pb-6 sm:pb-16 pt-2 sm:pt-4 relative z-20">
                 {/* Modern Metric Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-1.5 sm:gap-4 md:gap-6 mb-4 sm:mb-12">
                     {/* Gestionaires Card */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-blue-900/50 transition-all duration-500 hover:-translate-y-1 lg:hover:-translate-y-2">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
-                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
-                        <div className="relative p-4 sm:p-5 md:p-6">
-                            <div className="flex items-start justify-between mb-4">
-                                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-2xl sm:text-3xl">👥</span>
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] rounded-xl shadow-md sm:rounded-2xl sm:shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-blue-900/50 transition-all duration-500 hover:-translate-y-0.5 sm:hover:-translate-y-1 lg:hover:-translate-y-2">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 hidden sm:block"></div>
+                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12 hidden sm:block"></div>
+                        <div className="relative p-1.5 sm:p-4 md:p-6">
+                            <div className="flex items-start justify-between gap-1 mb-1 sm:mb-4">
+                                <div className="w-6 h-6 sm:w-11 sm:h-14 bg-white/20 backdrop-blur-sm rounded-md sm:rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shrink-0">
+                                    <span className="text-sm sm:text-2xl md:text-3xl leading-none">👥</span>
                                 </div>
-                                <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
-                                    <span className="text-xs font-semibold text-white">Total</span>
+                                <div className="bg-white/20 backdrop-blur-sm rounded-full px-1.5 py-0.5 sm:px-3 sm:py-1 shrink-0">
+                                    <span className="text-[10px] sm:text-xs font-semibold text-white">Total</span>
                                 </div>
                             </div>
-                            <h3 className="text-white/80 text-sm font-medium mb-1">Gestionaires</h3>
-                            <p className="text-3xl sm:text-4xl font-black text-white mb-2">
+                            <h3 className="text-white/80 text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 line-clamp-2 leading-tight">Gestionaires</h3>
+                            <p className="text-lg max-sm:text-base sm:text-3xl md:text-4xl font-black text-white mb-0 sm:mb-2 leading-none tabular-nums">
                                 {stats.loading ? '...' : <CompteurAnime value={stats.total_gestionaires || 0} />}
                             </p>
-                            <div className="flex items-center text-white/70 text-xs">
-                                <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <div className="hidden sm:flex items-center text-white/70 text-[10px] sm:text-xs leading-tight">
+                                <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clipRule="evenodd" />
                                 </svg>
-                                {stats.active_gestionaires} actifs
-                            </div>
+                                <span className="line-clamp-1">{stats.active_gestionaires} actifs</span>
                             </div>
                         </div>
+                    </div>
 
                     {/* Backups Card */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-cyan-600/50 transition-all duration-500 hover:-translate-y-1 lg:hover:-translate-y-2">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
-                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
-                        <div className="relative p-4 sm:p-5 md:p-6">
-                            <div className="flex items-start justify-between mb-4">
-                                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-2xl sm:text-3xl">💾</span>
+                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#0891b2] to-[#0e7490] rounded-xl shadow-md sm:rounded-2xl sm:shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-cyan-600/50 transition-all duration-500 hover:-translate-y-0.5 sm:hover:-translate-y-1 lg:hover:-translate-y-2">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 hidden sm:block"></div>
+                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12 hidden sm:block"></div>
+                        <div className="relative p-1.5 sm:p-4 md:p-6">
+                            <div className="flex items-start justify-between gap-1 mb-1 sm:mb-4">
+                                <div className="w-6 h-6 sm:w-11 sm:h-14 bg-white/20 backdrop-blur-sm rounded-md sm:rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shrink-0">
+                                    <span className="text-sm sm:text-2xl md:text-3xl leading-none">💾</span>
                                 </div>
-                                <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
-                                    <span className="text-xs font-semibold text-white">Sauvegardes</span>
+                                <div className="bg-white/20 backdrop-blur-sm rounded-full px-1.5 py-0.5 sm:px-3 sm:py-1 shrink-0">
+                                    <span className="text-[10px] sm:text-xs font-semibold text-white">Sauv.</span>
                                 </div>
                             </div>
-                            <h3 className="text-white/80 text-sm font-medium mb-1">Base de Données</h3>
-                            <p className="text-3xl sm:text-4xl font-black text-white mb-2">
+                            <h3 className="text-white/80 text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 line-clamp-2 leading-tight">Base de données</h3>
+                            <p className="text-lg max-sm:text-base sm:text-3xl md:text-4xl font-black text-white mb-0 sm:mb-2 leading-none tabular-nums">
                                 {stats.loading ? '...' : <CompteurAnime value={stats.total_backups || 0} />}
                             </p>
-                            <div className="flex items-center text-white/70 text-xs">
-                                <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <div className="hidden sm:flex items-center text-white/70 text-[10px] sm:text-xs leading-tight">
+                                <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                                     <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
                                 </svg>
-                                Sauvegardes disponibles
-                            </div>
+                                <span className="line-clamp-1">Sauvegardes</span>
                             </div>
                         </div>
+                    </div>
 
                     {/* Packages Card */}
-                    <div className="group relative overflow-hidden bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-2xl shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-yellow-600/50 transition-all duration-500 hover:-translate-y-1 lg:hover:-translate-y-2">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
-                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
-                        <div className="relative p-4 sm:p-5 md:p-6">
-                            <div className="flex items-start justify-between mb-4">
-                                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <span className="text-2xl sm:text-3xl">📦</span>
+                    <div className="group relative overflow-hidden col-span-2 md:col-span-1 bg-gradient-to-br from-[#d4af37] to-[#b8860b] rounded-xl shadow-md sm:rounded-2xl sm:shadow-xl lg:rounded-3xl lg:shadow-2xl hover:shadow-yellow-600/50 transition-all duration-500 hover:-translate-y-0.5 sm:hover:-translate-y-1 lg:hover:-translate-y-2">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 hidden sm:block"></div>
+                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12 hidden sm:block"></div>
+                        <div className="relative p-1.5 sm:p-4 md:p-6">
+                            <div className="flex items-start justify-between gap-1 mb-1 sm:mb-4">
+                                <div className="w-6 h-6 sm:w-11 sm:h-14 bg-white/20 backdrop-blur-sm rounded-md sm:rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shrink-0">
+                                    <span className="text-sm sm:text-2xl md:text-3xl leading-none">📦</span>
                                 </div>
-                                <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
-                                    <span className="text-xs font-semibold text-white">Installés</span>
+                                <div className="bg-white/20 backdrop-blur-sm rounded-full px-1.5 py-0.5 sm:px-3 sm:py-1 shrink-0">
+                                    <span className="text-[10px] sm:text-xs font-semibold text-white">OK</span>
                                 </div>
                             </div>
-                            <h3 className="text-white/80 text-sm font-medium mb-1">Paquets</h3>
-                            <p className="text-3xl sm:text-4xl font-black text-white mb-2">
+                            <h3 className="text-white/80 text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 line-clamp-2 leading-tight">Paquets</h3>
+                            <p className="text-lg max-sm:text-base sm:text-3xl md:text-4xl font-black text-white mb-0 sm:mb-2 leading-none tabular-nums">
                                 {stats.loading ? '...' : <CompteurAnime value={stats.total_packages || 0} />}
                             </p>
-                            <div className="flex items-center text-white/70 text-xs">
-                                <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <div className="hidden sm:flex items-center text-white/70 text-[10px] sm:text-xs leading-tight">
+                                <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                                 </svg>
-                                Paquets installés
+                                <span className="line-clamp-1">Installés</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Quick Actions - Modern Grid */}
-                <div className="mb-8 sm:mb-12">
-                    <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-6">
+                {/* Quick Actions - compact on phone */}
+                <div className="mb-5 sm:mb-12">
+                    <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-6">
                         <div className="h-1 flex-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-full"></div>
                         <h2 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white whitespace-nowrap">Actions Rapides</h2>
                         <div className="h-1 flex-1 bg-gradient-to-r from-[#1a365d] via-[#d4af37] to-[#0891b2] rounded-full"></div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                        {/* Gestionaires */}
-                        <Link to="/admin/gestionaires" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-900/10 to-transparent rounded-bl-full"></div>
-                            <div className="relative flex flex-col">
-                                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">👥</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-1 sm:mb-2">Gestionaires</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Créer et gérer les comptes gestionaires</p>
-                                <div className="mt-auto flex items-center text-[#1e40af] dark:text-blue-400 text-sm font-medium">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-4 justify-center">
+                        <Link to="/admin/gestionaires" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1e40af] dark:hover:border-[#1e40af] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-900/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">👥</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Gestionaires</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Comptes gestionaires</p>
+                                </div>
+                                <div className="flex items-center text-[#1e40af] dark:text-blue-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Gérer</span>
-                                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
                         </Link>
 
-                        {/* Messages Gestionaires */}
-                        <Link to="/admin/messages-gestionaires" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1a365d] dark:hover:border-[#1a365d] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-900/10 to-transparent rounded-bl-full"></div>
-                            <div className="relative flex flex-col">
-                                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">💬</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-1 sm:mb-2">Messages</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Messages des gestionaires</p>
-                                <div className="mt-auto flex items-center text-[#1a365d] dark:text-blue-400 text-sm font-medium">
+                        <Link to="/admin/messages-gestionaires" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#1a365d] dark:hover:border-[#1a365d] transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-900/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">💬</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Messages</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Gestionaires</p>
+                                </div>
+                                <div className="flex items-center text-[#1a365d] dark:text-blue-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Ouvrir</span>
-                                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
                         </Link>
 
-                        {/* Base de données */}
-                        <Link to="/admin/database" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-600/10 to-transparent rounded-bl-full"></div>
-                            <div className="relative flex flex-col">
-                                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">💾</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-1 sm:mb-2">Base de Données</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Sauvegarder et restaurer la base de données</p>
-                                <div className="mt-auto flex items-center text-[#0891b2] dark:text-cyan-400 text-sm font-medium">
+                        <Link to="/admin/database" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#0891b2] dark:hover:border-[#0891b2] transition-all duration-300 hover:shadow-lg hover:shadow-cyan-600/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">💾</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Base de données</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Sauvegardes</p>
+                                </div>
+                                <div className="flex items-center text-[#0891b2] dark:text-cyan-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Gérer</span>
-                                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
                         </Link>
 
-                        {/* Paquets */}
-                        <Link to="/admin/packages" className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl p-4 sm:rounded-2xl sm:p-6 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-600/10 to-transparent rounded-bl-full"></div>
-                            <div className="relative flex flex-col">
-                                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">📦</div>
-                                <h3 className="font-bold text-gray-900 dark:text-white text-lg sm:text-xl mb-1 sm:mb-2">Paquets</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Installer et gérer les paquets</p>
-                                <div className="mt-auto flex items-center text-[#b8860b] dark:text-yellow-400 text-sm font-medium">
+                        <Link to="/admin/packages" className="w-full md:w-1/2 lg:w-1/5 group relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg p-2.5 sm:rounded-2xl sm:p-5 border-2 border-gray-100 dark:border-gray-700 hover:border-[#d4af37] dark:hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg hover:shadow-yellow-600/20">
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-600/10 to-transparent rounded-bl-full hidden sm:block"></div>
+                            <div className="relative flex flex-row sm:flex-col items-center gap-2.5 sm:gap-0 sm:items-stretch">
+                                <div className="text-lg sm:text-2xl md:text-3xl shrink-0 sm:mb-2 sm:mb-3 leading-none">📦</div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="font-bold text-gray-900 dark:text-white text-sm sm:text-base sm:text-lg mb-0 sm:mb-1 leading-tight line-clamp-2">Paquets</h3>
+                                    <p className="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Installation</p>
+                                </div>
+                                <div className="flex items-center text-[#b8860b] dark:text-yellow-400 text-xs sm:text-sm font-medium shrink-0 sm:mt-3">
                                     <span>Gérer</span>
-                                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 sm:ml-1 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </div>

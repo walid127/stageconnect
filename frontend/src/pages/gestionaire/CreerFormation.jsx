@@ -114,7 +114,7 @@ export default function CreerFormation() {
         <div className="min-h-screen bg-[#FDFDFC] dark:bg-[#0a0a0a]">
             <NavigationGestionaire />
 
-            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8">
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 sm:py-8">
                 <div className="mb-6">
                     <Link to="/gestionaire/stages" className="text-[#f53003] hover:text-[#d42902] flex items-center gap-2">
                         ← Retour à la liste des formations
