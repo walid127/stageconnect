@@ -1,15 +1,29 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
+import { computeBellDropdownPosition } from '../utils/bellDropdownPosition';
 
 export default function ClocheMessage({ showDropdown, onToggle }) {
     const [messages, setMessages] = useState([]);
     const [unreadCount, setUnreadCount] = useState(0);
     const [loading, setLoading] = useState(false);
     const [buttonRef, setButtonRef] = useState(null);
+    const [dropdownPos, setDropdownPos] = useState({ top: 0, right: 0 });
     const { user, isAdmin, isGestionaire } = useAuth();
+
+    useLayoutEffect(() => {
+        if (!showDropdown || !buttonRef) return;
+        const update = () => setDropdownPos(computeBellDropdownPosition(buttonRef));
+        update();
+        window.addEventListener('resize', update);
+        window.addEventListener('scroll', update, true);
+        return () => {
+            window.removeEventListener('resize', update);
+            window.removeEventListener('scroll', update, true);
+        };
+    }, [showDropdown, buttonRef]);
     
     // Determine the messages route based on user role
     const getMessagesRoute = () => {
@@ -124,11 +138,8 @@ export default function ClocheMessage({ showDropdown, onToggle }) {
             {showDropdown && buttonRef && createPortal(
                 <div 
                     data-dropdown="message"
-                    className="fixed flex max-h-[min(24rem,calc(100dvh-5rem))] w-[min(20rem,calc(100vw-1rem))] flex-col bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 z-[99999] overflow-hidden"
-                    style={{
-                        top: buttonRef.getBoundingClientRect().bottom + 8,
-                        right: window.innerWidth - buttonRef.getBoundingClientRect().right
-                    }}
+                    className="fixed flex max-h-[min(24rem,calc(100dvh-5rem))] w-[min(20rem,calc(100vw-1rem))] max-w-[calc(100vw-1rem)] flex-col bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 z-[99999] overflow-hidden"
+                    style={dropdownPos}
                 >
                     {/* En-tête Moderne */}
                     <div className="shrink-0 bg-gradient-to-r from-[#1a365d] to-[#2d3748] p-3">
