@@ -471,7 +471,7 @@ export default function StageRegulierGestionaire() {
                         <div className="overflow-x-auto">
                             {/* List Header */}
                             <div className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
-                                <div className="grid grid-cols-11 gap-2 text-white font-semibold">
+                                <div className="grid min-w-[980px] grid-cols-11 gap-2 text-white font-semibold">
                                     <div className="col-span-1 text-center">#</div>
                                     <div className="col-span-3 text-center">Titre de la Formation</div>
                                     <div className="col-span-1 text-center">Places</div>
@@ -488,7 +488,7 @@ export default function StageRegulierGestionaire() {
                                         key={`training-${training.id}`}
                                         className="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-200"
                                     >
-                                        <div className="grid grid-cols-11 gap-2 items-center">
+                                        <div className="grid min-w-[980px] grid-cols-11 gap-2 items-center">
                                             <div className="col-span-1 text-center">
                                                 <span className="text-sm font-medium text-[#78786c] dark:text-[#9D9D99]">
                                                     {index + 1}

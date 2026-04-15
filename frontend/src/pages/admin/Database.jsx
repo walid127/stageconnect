@@ -255,7 +255,8 @@ export default function Database() {
                                 </div>
                             </div>
                         ) : (
-                            <table className="w-full">
+                            <div className="overflow-x-auto">
+                            <table className="w-full min-w-[980px]">
                                 <thead className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] text-white">
                                     <tr>
                                         <th className="px-6 py-4 text-center font-semibold">Nom du fichier</th>
@@ -301,6 +302,7 @@ export default function Database() {
                                     ))}
                                 </tbody>
                             </table>
+                            </div>
                         )}
                     </div>
                 )}

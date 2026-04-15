@@ -257,7 +257,8 @@ export default function Packages() {
                                 </div>
                             </div>
                         ) : (
-                            <table className="w-full">
+                            <div className="overflow-x-auto">
+                            <table className="w-full min-w-[1050px]">
                                 <thead className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] text-white">
                                     <tr>
                                         <th className="px-6 py-4 text-center font-semibold">Nom</th>
@@ -299,6 +300,7 @@ export default function Packages() {
                                     ))}
                                 </tbody>
                             </table>
+                            </div>
                         )}
                     </div>
                 )}

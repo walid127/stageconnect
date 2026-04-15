@@ -272,7 +272,7 @@ export default function Grades() {
                         <div className="overflow-x-auto">
                             {/* Table Header */}
                             <div className="bg-gradient-to-r from-[#1a365d] to-[#2d3748] px-6 py-4">
-                                <div className="grid grid-cols-6 gap-4 text-white font-semibold">
+                                <div className="grid min-w-[860px] grid-cols-6 gap-4 text-white font-semibold">
                                     <div className="col-span-1 text-center">Code</div>
                                     <div className="col-span-2 text-center">Nom</div>
                                     <div className="col-span-2 text-center">Description</div>
@@ -287,7 +287,7 @@ export default function Grades() {
                                         key={grade.id}
                                         className="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-200"
                                     >
-                                        <div className="grid grid-cols-6 gap-4 items-center">
+                                        <div className="grid min-w-[860px] grid-cols-6 gap-4 items-center">
                                             <div className="col-span-1 text-center">
                                                 <span className="text-sm font-medium text-[#1b1b18] dark:text-[#EDEDEC]">
                                                     {grade.code}
