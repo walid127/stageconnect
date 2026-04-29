@@ -146,11 +146,21 @@ class AuthController extends Controller
             ], 403);
         }
 
-        // Supprimer les anciens jetons
-        $user->tokens()->delete();
+        // Créer un nouveau jeton sans invalider immédiatement les autres sessions.
+        // Puis limiter le nombre total de sessions actives pour éviter une accumulation infinie.
+        $newToken = $user->createToken('jeton-authentification');
+        $token = $newToken->plainTextToken;
 
-        // Créer un nouveau jeton
-        $token = $user->createToken('jeton-authentification')->plainTextToken;
+        $maxActiveTokens = 5;
+        $activeTokenIds = $user->tokens()
+            ->orderByDesc('last_used_at')
+            ->orderByDesc('created_at')
+            ->pluck('id');
+
+        if ($activeTokenIds->count() > $maxActiveTokens) {
+            $idsToDelete = $activeTokenIds->slice($maxActiveTokens)->values();
+            $user->tokens()->whereIn('id', $idsToDelete)->delete();
+        }
 
         // Recharger l'utilisateur avec les relations
         if ($user->isFormateur()) {
