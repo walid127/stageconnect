@@ -20,8 +20,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // URLs et redirections en https en production (obligatoire derrière Render + TLS).
-        if ($this->app->environment('production')) {
+        // Forcer https sur Render même si APP_ENV n'est pas "production", et en prod classique.
+        if ($this->app->runningInConsole()) {
+            return;
+        }
+
+        $host = request()->getHost();
+        if (str_ends_with($host, '.onrender.com') || $this->app->environment('production')) {
             URL::forceScheme('https');
         }
     }
