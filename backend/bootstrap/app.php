@@ -22,6 +22,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Render / Cloudflare envoient X-Forwarded-Proto: https. Sans cela, Laravel croit
+        // que la requête est en http → redirections vers http, perte du chemin / des en-têtes
+        // Authorization après redirection → 401 sur toutes les routes API.
+        $middleware->trustProxies(at: '*');
+
         // Configuration des middlewares pour les routes API
         // Ajout du middleware CORS pour permettre les requêtes cross-origin
         $middleware->api(prepend: [
