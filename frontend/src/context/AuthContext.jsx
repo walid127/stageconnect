@@ -8,6 +8,37 @@ const BASE_URL = import.meta.env.VITE_API_URL || 'https://stageconnect-api.onren
 
 axios.defaults.baseURL = BASE_URL;
 
+// Attach Bearer token from localStorage on every request so calls are authenticated
+// even before React effects sync axios.defaults (avoids 401 right after login).
+const isPublicAuthPost = (config) => {
+    const method = (config.method || 'get').toLowerCase();
+    if (method !== 'post') return false;
+    const path = config.url || '';
+    return (
+        path.includes('/auth/login') ||
+        path.includes('/auth/register') ||
+        path.includes('/auth/forgot-password') ||
+        path.includes('/auth/reset-password')
+    );
+};
+
+axios.interceptors.request.use((config) => {
+    if (isPublicAuthPost(config)) {
+        const h = config.headers;
+        if (h && typeof h.delete === 'function') {
+            h.delete('Authorization');
+        } else if (h) {
+            delete h.Authorization;
+        }
+        return config;
+    }
+    const stored = localStorage.getItem('token');
+    if (stored) {
+        config.headers.Authorization = `Bearer ${stored}`;
+    }
+    return config;
+});
+
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -80,7 +111,11 @@ export const AuthProvider = ({ children }) => {
         try {
             const response = await axios.post('/api/auth/login', { email, password }); // ← تأكد من المسار
             const { token, user } = response.data;
+            if (!token || typeof token !== 'string') {
+                throw new Error('Réponse de connexion invalide (jeton manquant).');
+            }
             localStorage.setItem('token', token);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             setToken(token);
             setUser(user);
             return response.data;
